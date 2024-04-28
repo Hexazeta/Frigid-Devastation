@@ -1,7 +1,7 @@
 package Frigid;
 
 import mindustry.mod.*;
-import FrigidDevastation.gen.*;
+import frigid.gen.*;
 
 public class ModFrigidDevastation extends Mod{
     @Override
