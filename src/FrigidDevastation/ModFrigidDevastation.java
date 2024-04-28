@@ -1,4 +1,4 @@
-package FrigidDevastation;
+package Frigid;
 
 import mindustry.mod.*;
 import FrigidDevastation.gen.*;
