@@ -1,9 +1,9 @@
-package template;
+package FrigidDevastation;
 
 import mindustry.mod.*;
-import template.gen.*;
+import FrigidDevastation.gen.*;
 
-public class ModTemplate extends Mod{
+public class ModFrigidDevastation extends Mod{
     @Override
     public void loadContent(){
         EntityRegistry.register();
