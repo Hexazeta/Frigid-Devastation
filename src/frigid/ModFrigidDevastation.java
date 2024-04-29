@@ -1,9 +1,9 @@
-package Frigid;
+package frigid;
 
 import mindustry.mod.*;
 import frigid.gen.*;
 
-public class ModFrigidDevastation extends Mod{
+public class modfrigid extends Mod{
     @Override
     public void loadContent(){
         EntityRegistry.register();
