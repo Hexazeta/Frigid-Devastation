@@ -68,7 +68,7 @@ public class frigidunits {
 
             weapons.add(new Weapon("ballistic-cannon"){{
                 x = 0;
-                y = 2;
+                y = 32;
                 alternate = false;
                 mirror = true;
                 reload = 28f;
