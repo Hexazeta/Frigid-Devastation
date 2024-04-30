@@ -1,5 +1,6 @@
 package frigid.scripts;
 
+import static mindustry.Vars.*;
 import arc.graphics.Color;
 import arc.math.Interp;
 import arc.math.Mathf;
