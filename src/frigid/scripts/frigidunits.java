@@ -21,6 +21,8 @@ import mindustry.graphics.Layer;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 
+import static modfrigid.NAME;
+
 public class frigidunits {
     public static UnitType
 
@@ -48,7 +50,7 @@ public class frigidunits {
 
             outlineColor = Color.valueOf("2b2626");
 
-            weapons.add(new Weapon("frigid-ballistic-cannon"){{
+            weapons.add(new Weapon(NAME +"-ballistic-cannon"){{
                 x = 10;
                 y = 4;
                 alternate = true;
