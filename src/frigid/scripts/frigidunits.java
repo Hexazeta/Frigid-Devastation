@@ -71,14 +71,12 @@ public class frigidunits {
                 mirror = true;
                 reload = 28f;
 
-                shootSound = pew;
+                shootSound = pew.ogg;
                 inaccuracy = 15f;
                 bullet = new MissileBulletType(3, 15){{
                     width = 8;
                     height = 8;
                     }};
-
-                    sprite = "circle";
                 }});
             }};
         }};
