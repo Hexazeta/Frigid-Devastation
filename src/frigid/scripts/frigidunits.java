@@ -57,7 +57,7 @@ public class frigidunits {
                 mirror = true;
                 reload = 28f;
 
-                shootSound = Sounds.pew
+                shootSound = Vars.tree.loadSound("pew");
                 inaccuracy = 1f;
                 bullet = new BasicBulletType(4, 15){{
                     width = 8;
