@@ -30,7 +30,7 @@ public class frigidunits {
 
     public static void load() { 
 
-     ballistic = new UnitType("ground ballistic"){{
+     ballistic = new UnitType("ballistic"){{
             constructor = LegsUnit::create;
             aiController = GroundAI::new;
 
