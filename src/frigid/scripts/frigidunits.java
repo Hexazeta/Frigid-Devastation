@@ -49,8 +49,8 @@ public class frigidunits {
             outlineColor = Color.valueOf("2b2626");
 
             weapons.add(new Weapon("ballistic-cannon"){{
-                x = 12;
-                y = 0;
+                x = 10;
+                y = 4;
                 alternate = true;
                 mirror = true;
                 reload = 28f;
@@ -58,8 +58,8 @@ public class frigidunits {
                 shootSound = Vars.tree.loadSound("pew");
                 inaccuracy = 1f;
                 bullet = new BasicBulletType(4, 15){{
-                    width = 8;
-                    height = 16;
+                    width = 12;
+                    height = 20;
                     }};
                 }});
             }};
