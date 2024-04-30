@@ -71,7 +71,7 @@ public class frigidunits {
                 mirror = true;
                 reload = 28f;
 
-                shootSound = pew.ogg;
+                shootSound = Vars.tree.loadSound("pew");
                 inaccuracy = 15f;
                 bullet = new MissileBulletType(3, 15){{
                     width = 8;
