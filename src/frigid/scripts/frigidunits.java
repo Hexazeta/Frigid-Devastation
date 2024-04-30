@@ -75,9 +75,9 @@ public class frigidunits {
 
                 shootSound = Vars.tree.loadSound("pew");
                 inaccuracy = 15f;
-                bullet = new MissileBulletType(3, 15){{
-                    width = 8;
-                    height = 8;
+                bullet = new BasicBulletType(3, 15){{
+                    width = 16;
+                    height = 32;
                     }};
                 }});
             }};
