@@ -31,17 +31,15 @@ public class frigidunits {
     public static void load() { 
 
      ballistic = new UnitType("ballistic"){{
-            constructor = LegsUnit::create;
+            constructor = mechUnit::create;
             aiController = GroundAI::new;
 
-            speed = 1f;
+            speed = 0.5f;
             drag = 0.11f;
-            hitSize = 12f;
+            hitSize = 24f;
             rotateSpeed = 3f;
             health = 5040;
             armor = 10f;
-            legStraightness = 0.3f;
-            stepShake = 0f;
 
             shadowElevation = 0.1f;
             groundLayer = Layer.legUnit - 1f;
@@ -51,7 +49,7 @@ public class frigidunits {
             outlineColor = Color.valueOf("2b2626");
 
             weapons.add(new Weapon("ballistic-cannon"){{
-                x = 8;
+                x = 12;
                 y = 0;
                 alternate = true;
                 mirror = true;
