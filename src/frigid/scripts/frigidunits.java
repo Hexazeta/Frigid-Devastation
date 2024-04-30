@@ -48,7 +48,7 @@ public class frigidunits {
 
             outlineColor = Color.valueOf("2b2626");
 
-            weapons.add(new Weapon("ballistic-cannon"){{
+            weapons.add(new Weapon("ballistic-weapon"){{
                 x = 10;
                 y = 4;
                 alternate = true;
