@@ -21,8 +21,6 @@ import mindustry.graphics.Layer;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 
-import static modfrigid.NAME;
-
 public class frigidunits {
     public static UnitType
 
