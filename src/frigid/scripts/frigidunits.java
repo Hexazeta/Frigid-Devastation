@@ -31,7 +31,7 @@ public class frigidunits {
     public static void load() { 
 
      ballistic = new UnitType("ballistic"){{
-            constructor = mechUnit::create;
+            constructor = MechUnit::create;
             aiController = GroundAI::new;
 
             speed = 0.5f;
