@@ -36,28 +36,12 @@ public class frigidunits {
 
             speed = 1f;
             drag = 0.11f;
-            hitSize = 9f;
+            hitSize = 12f;
             rotateSpeed = 3f;
-            health = 650;
-            armor = 1f;
+            health = 5040;
+            armor = 10f;
             legStraightness = 0.3f;
             stepShake = 0f;
-
-            legCount = 2;
-            legLength = 8f;
-            lockLegBase = true;
-            legContinuousMove = true;
-            legExtension = -2f;
-            legBaseOffset = 3f;
-            legMaxLength = 2f;
-            legMinLength = 0.9f;
-            legLengthScl = 0.96f;
-            legForwardScl = 1.1f;
-            rippleScale = 0.2f;
-
-            legMoveSpace = 1.2f;
-            allowLegStep = true;
-            legPhysicsLayer = false;
 
             shadowElevation = 0.1f;
             groundLayer = Layer.legUnit - 1f;
@@ -67,14 +51,14 @@ public class frigidunits {
             outlineColor = Color.valueOf("2b2626");
 
             weapons.add(new Weapon("ballistic-cannon"){{
-                x = 4;
+                x = 8;
                 y = 0;
-                alternate = false;
+                alternate = true;
                 mirror = true;
                 reload = 28f;
 
-                shootSound = Vars.tree.loadSound("pew");
-                inaccuracy = 15f;
+                shootSound = Sounds.artillery
+                inaccuracy = 1f;
                 bullet = new BasicBulletType(4, 15){{
                     width = 8;
                     height = 16;
