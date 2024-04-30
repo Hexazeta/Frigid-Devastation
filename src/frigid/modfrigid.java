@@ -2,7 +2,7 @@ package frigid;
 
 import mindustry.mod.*;
 import frigid.gen.*;
-import frigidunits;
+import frigidunits.;
 
 public class modfrigid extends Mod{
     @Override
