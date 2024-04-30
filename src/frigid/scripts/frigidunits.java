@@ -39,7 +39,7 @@ public class frigidunits {
             hitSize = 24f;
             rotateSpeed = 3f;
             health = 5040;
-            armor = 10f;
+            armor = 24f;
 
             shadowElevation = 0.1f;
             groundLayer = Layer.legUnit - 1f;
