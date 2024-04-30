@@ -8,6 +8,6 @@ public class modfrigid extends Mod{
     @Override
     public void loadContent(){
         EntityRegistry.register();
-        frigid.scripts.load();
+        frigidscripts.load();
     }
 }
