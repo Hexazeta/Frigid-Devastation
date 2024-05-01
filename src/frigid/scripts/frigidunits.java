@@ -48,7 +48,7 @@ public class frigidunits {
 
             outlineColor = Color.valueOf("2b2626");
 
-            weapons.add(new Weapon("frigid-devastation-ballistic-cannon"){{
+            weapons.add(new Weapon("Frigid-Devastation-ballistic-cannon"){{
                 x = 10;
                 y = 4;
                 alternate = true;
@@ -56,7 +56,7 @@ public class frigidunits {
                 reload = 24f;
                 shootSound = Vars.tree.loadSound("pewpewpew.ogg");
                 inaccuracy = 1f;
-                bullet = new BasicBulletType(4, 120){{
+                bullet = new BasicBulletType(1, 120){{
                     width = 10;
                     height = 18;
                     }};
