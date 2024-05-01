@@ -34,7 +34,7 @@ public class frigidunits {
             constructor = MechUnit::create;
             aiController = GroundAI::new;
 
-            speed = 0.5f;
+            speed = 0.25f;
             drag = 0.11f;
             hitSize = 24f;
             rotateSpeed = 3f;
@@ -57,7 +57,7 @@ public class frigidunits {
 
                 shootSound = Vars.tree.loadSound("pewpewpew.ogg");
                 inaccuracy = 1f;
-                bullet = new BasicBulletType(4, 45){{
+                bullet = new BasicBulletType(4, 120){{
                     width = 10;
                     height = 18;
                     }};
