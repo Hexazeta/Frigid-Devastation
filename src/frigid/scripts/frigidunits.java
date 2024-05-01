@@ -34,7 +34,7 @@ public class frigidunits {
             constructor = MechUnit::create;
             aiController = GroundAI::new;
 
-            speed = 0.25f;
+            speed = 0.124f;
             drag = 0.11f;
             hitSize = 24f;
             rotateSpeed = 3f;
@@ -53,7 +53,7 @@ public class frigidunits {
                 y = 4;
                 alternate = true;
                 mirror = true;
-                reload = 28f;
+                reload = 24f;
 
                 shootSound = Vars.tree.loadSound("pewpewpew.ogg");
                 inaccuracy = 1f;
