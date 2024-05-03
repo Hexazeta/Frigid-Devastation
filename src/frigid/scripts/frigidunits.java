@@ -55,7 +55,7 @@ public class frigidunits {
                 mirror = true;
                 reload = 24f;
                 inaccuracy = 1f;
-                bullet = new BasicBulletType(24, 120){{
+                bullet = new BasicBulletType(60, 120){{
                     width = 10;
                     height = 18;
                     }};
