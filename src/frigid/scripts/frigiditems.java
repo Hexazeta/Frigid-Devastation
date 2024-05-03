@@ -1,5 +1,7 @@
 package frigid.scripts;
 
+import frigid.scripts.frigiditems;
+
 public class frigiditems {
 
     public static Item citrine,carborundum,cobalt,lithium,kyanite,duralumin,manganese;
