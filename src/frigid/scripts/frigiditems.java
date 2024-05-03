@@ -1,29 +1,29 @@
 public class frigiditems{
 
-    public static item citrine,carborundum,cobalt,lithium,kyanite,duralumin,manganese;
+    public static Item citrine,carborundum,cobalt,lithium,kyanite,duralumin,manganese;
 
     public static void load() {
 
-        citrine = new item("citrine");
-        citrine.color = pal2.citrine;
+        citrine = new Item("citrine");
+        citrine.color = Pal2.citrine;
 
-        carborundum = new item("carborundum");
-        carborundum.color = pal2.carborundum;
+        carborundum = new Item("carborundum");
+        carborundum.color = Pal2.carborundum;
 
-        cobalt = new item("cobalt");
-        cobalt.color = pal2.cobalt;
+        cobalt = new Item("cobalt");
+        cobalt.color = Pal2.cobalt;
 
-        lithium = new item("lithium");
-        lithium.color = pal2.lithium;
+        lithium = new Item("lithium");
+        lithium.color = Pal2.lithium;
 
-        kyanite = new item("kyanite");
-        kyanite.color = pal2.kyanite;
+        kyanite = new Item("kyanite");
+        kyanite.color = Pal2.kyanite;
 
-        duralumin = new item("duralumin");
-        duralumin.color = pal2.duralumin;
+        duralumin = new Item("duralumin");
+        duralumin.color = Pal2.duralumin;
 
-        manganese = new item("manganese");
-        manganese.color = pal2.manganese;
+        manganese = new Item("manganese");
+        manganese.color = Pal2.manganese;
 
     }
 
