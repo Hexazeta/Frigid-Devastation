@@ -29,12 +29,4 @@ public class frigiditems {
         manganese = new Item("manganese");
         manganese.color = frigiditems.manganese;
 
-    }
-
-
-
-
-
-
-
-}
+    }}
