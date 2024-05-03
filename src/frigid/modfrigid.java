@@ -9,5 +9,6 @@ public class modfrigid extends Mod{
     public void loadContent(){
         EntityRegistry.register();
         frigidunits.load();
+        frigiditems.load();
     }
 }
