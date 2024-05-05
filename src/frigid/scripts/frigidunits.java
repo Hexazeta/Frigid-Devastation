@@ -26,11 +26,14 @@ public class frigidunits {
 
             //ballistic,ground
             ballistic;
+            
+            //spiker kaboom
+            spiker;
     ;
 
     public static void load() { 
 
-     ballistic = new UnitType("ballistic"){{
+        ballistic = new UnitType("ballistic"){{
             constructor = MechUnit::create;
             aiController = GroundAI::new;
 
@@ -48,7 +51,7 @@ public class frigidunits {
 
             outlineColor = Color.valueOf("2b2626");
 
-            weapons.add(new Weapon("ballistic-cannon"){{
+            weapons.add(new Weapon("Frigid-ballistic-cannon"){{
                 x = 10;
                 y = 4;
                 alternate = true;
@@ -59,6 +62,20 @@ public class frigidunits {
                     width = 10;
                     height = 18;
                     }};
-                }});
-            }};
+            }});
         }};
+    }};
+    public static void load() { 
+
+        spiker = new UnitType("spiker"){{
+            constructor = MechUnit::create;
+            aiController = GroundAI::new;
+
+            speed = 1f;
+            drag = 0.11f;
+            hitSize = 24f;
+            rotateSpeed = 3f;
+            health = 5040;
+            armor = 24f;
+        }};
+    }
