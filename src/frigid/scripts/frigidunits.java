@@ -58,9 +58,9 @@ public class frigidunits {
                 mirror = true;
                 reload = 24f;
                 inaccuracy = 1f;
-                bullet = new BasicBulletType(10, 120){{
-                    width = 10;
-                    height = 18;
+                bullet = new BasicBulletType(8, 120){{
+                    width = 11;
+                    height = 19;
                     }};
             }});
         }};
@@ -74,8 +74,8 @@ public class frigidunits {
             lockLegBase = true;
             legContinuousMove = true;
             legExtension = -2f;
-            legBaseOffset = 3f;
-            legMaxLength = 3f;
+            legBaseOffset = 2f;
+            legMaxLength = 2f;
             legMinLength = 2f;
             legLengthScl = 1;
             legForwardScl = 1f;
