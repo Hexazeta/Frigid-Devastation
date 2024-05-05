@@ -75,13 +75,13 @@ public class frigidunits {
             legContinuousMove = true;
             legExtension = -2f;
             legBaseOffset = 3f;
-            legMaxLength = 2f;
-            legMinLength = 2f;
+            legMaxLength = 3f;
+            legMinLength = 0.5f;
             legLengthScl = 2;
             legForwardScl = 2f;
             rippleScale = 1f;
 
-            legMoveSpace = 1.2f;
+            legMoveSpace = 2f;
             allowLegStep = true;
             legPhysicsLayer = false;
 
