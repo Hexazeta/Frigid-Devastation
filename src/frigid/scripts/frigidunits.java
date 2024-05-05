@@ -64,8 +64,6 @@ public class frigidunits {
                     }};
             }});
         }};
-    }};
-    public static void load() { 
 
         spiker = new UnitType("spiker"){{
             constructor = MechUnit::create;
@@ -78,4 +76,4 @@ public class frigidunits {
             health = 5040;
             armor = 24f;
         }};
-    }
+    }};
