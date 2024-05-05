@@ -25,7 +25,7 @@ public class frigidunits {
     public static UnitType
 
             //ballistic,ground
-            ballistic;
+            ballistic,
             
             //spiker kaboom
             spiker;
