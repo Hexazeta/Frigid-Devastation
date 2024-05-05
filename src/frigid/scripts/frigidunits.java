@@ -69,6 +69,22 @@ public class frigidunits {
             constructor = LegsUnit::create;
             aiController = GroundAI::new;
 
+            legCount = 8;
+            legLength = 16f;
+            lockLegBase = true;
+            legContinuousMove = true;
+            legExtension = -2f;
+            legBaseOffset = 3f;
+            legMaxLength = 2f;
+            legMinLength = 2f;
+            legLengthScl = 2;
+            legForwardScl = 2f;
+            rippleScale = 1f;
+
+            legMoveSpace = 1.2f;
+            allowLegStep = true;
+            legPhysicsLayer = false;
+
             speed = 1f;
             drag = 0.11f;
             hitSize = 24f;
