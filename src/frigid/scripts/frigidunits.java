@@ -66,7 +66,7 @@ public class frigidunits {
         }};
 
         spiker = new UnitType("spiker"){{
-            constructor = MechUnit::create;
+            constructor = LegsUnit::create;
             aiController = GroundAI::new;
 
             speed = 1f;
