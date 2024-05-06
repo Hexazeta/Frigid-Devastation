@@ -82,7 +82,7 @@ public class frigidunits {
             legLengthScl = 0.5f;
             legForwardScl = 0.5f;
             rippleScale = 0.5f;
-            rotateToBuilding = true
+            rotateToBuilding = true;
             legMoveSpace = 2f;
             allowLegStep = true;
             legPhysicsLayer = false;
