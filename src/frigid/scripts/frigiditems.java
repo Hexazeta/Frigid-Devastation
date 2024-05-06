@@ -36,4 +36,5 @@ public class frigiditems {
         manganese = new Item("manganese"){{
             color = Color.valueOf("570034");
         }};
+        
     }}
