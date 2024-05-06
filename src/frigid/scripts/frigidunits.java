@@ -91,5 +91,8 @@ public class frigidunits {
             rotateSpeed = 3f;
             health = 5040;
             armor = 24f;
+
+            outlineColor = Color.valueOf("2b2626");
+
         }};
     }};
