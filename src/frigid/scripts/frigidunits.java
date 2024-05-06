@@ -59,7 +59,7 @@ public class frigidunits {
                 reload = 24f;
                 inaccuracy = 1f;
 
-                shootsound = Vars.tree.loadsound(pewpewpew.ogg)
+                shootsound = Vars.tree.loadsound("pewpewpew.ogg")
                 bullet = new BasicBulletType(6, 120){{
                     width = 11;
                     height = 19;
