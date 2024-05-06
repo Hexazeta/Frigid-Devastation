@@ -37,7 +37,7 @@ public class frigidunits {
             constructor = MechUnit::create;
             aiController = GroundAI::new;
 
-            speed = 0.124f;
+            speed = 0.25f;
             drag = 0.11f;
             hitSize = 24f;
             rotateSpeed = 3f;
@@ -58,7 +58,7 @@ public class frigidunits {
                 mirror = true;
                 reload = 24f;
                 inaccuracy = 1f;
-                bullet = new BasicBulletType(8, 120){{
+                bullet = new BasicBulletType(6, 120){{
                     width = 11;
                     height = 19;
                     }};
