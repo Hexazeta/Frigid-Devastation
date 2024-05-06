@@ -4,13 +4,7 @@ import mindustry.type.Item;
 
 public class frigiditems {
 
-    public static Item citrine;
-    public static Item carborundum;
-    public static Item cobalt;
-    public static Item lithium;
-    public static Item kyanite;
-    public static Item duralumin;
-    public static Item manganese;
+    public static Item citrine, carborundum, cobalt, lithium, kyanite, duralumin, manganese;
 
     public static void load() {
 
