@@ -1,7 +1,6 @@
 package frigid;
 
 import mindustry.mod.*;
-import frigid.gen.*;
 import frigid.scripts.*;
 
 public class modfrigid extends Mod{
@@ -9,5 +8,12 @@ public class modfrigid extends Mod{
     public void loadContent(){
         EntityRegistry.register();
         frigidunits.load();
+        frigiditems.load();
+    }
+
+    private static class EntityRegistry {
+        public static void register() {
+        }
     }
 }
+
