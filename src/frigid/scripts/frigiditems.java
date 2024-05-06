@@ -1,5 +1,3 @@
-//i disabled this for temporary, just put ".java" at the end :D
-
 package frigid.scripts;
 
 import mindustry.type.Item;
