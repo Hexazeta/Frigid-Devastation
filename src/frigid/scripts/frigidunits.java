@@ -79,7 +79,7 @@ public class frigidunits {
             legBaseOffset = 1f;
             legMaxLength = 1f;
             legMinLength = 1f;
-            legLengthScl = 0.5;
+            legLengthScl = 0.5f;
             legForwardScl = 0.5f;
             rippleScale = 0.5f;
 
