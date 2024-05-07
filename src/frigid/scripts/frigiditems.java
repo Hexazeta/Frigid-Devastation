@@ -5,7 +5,8 @@ import mindustry.type.Item;
 
 public class frigiditems {
 
-    public static Item citrine, carborundum, cobalt, lithium, kyanite, duralumin, manganese;
+    public static Item citrine, carborundum, cobalt, lithium, kyanite, duralumin,
+            manganese,cryolite;
 
     public static void load() {
 
@@ -36,5 +37,9 @@ public class frigiditems {
         manganese = new Item("manganese"){{
             color = Color.valueOf("570034");
         }};
-        
+
+        cryolite = new Item("cryolite"){{
+            color = Color.valueOf("b0a082");
+        }};
+
     }}
