@@ -19,6 +19,7 @@ public class frigidblocks {
         carborundumCompressor = new GenericCrafter("carborundum-compressor"){{
             requirements(Category.crafting,
                     with(frigiditems.duralumin, 30, frigiditems.citrine, 25));
+            itemCapacity = 20;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.carborundum, 3);
             craftTime = 40f;
@@ -35,6 +36,7 @@ public class frigidblocks {
         kyanitePress = new GenericCrafter("kyanite-press"){{
             requirements(Category.crafting,
                     with(frigiditems.duralumin, 30, Items.graphite, 25));
+            itemCapacity = 20;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.kyanite, 3);
             craftTime = 40f;
@@ -51,6 +53,7 @@ public class frigidblocks {
         metalAmalgamate = new GenericCrafter("metal-amalgamate"){{
             requirements(Category.crafting,
                     with(Items.graphite, 1));
+            itemCapacity = 120;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(Items.copper, 24);
             craftTime = 80f;
@@ -63,7 +66,7 @@ public class frigidblocks {
             consumeItems(with(frigiditems.citrine, 5, frigiditems.cryolite, 5,
                     frigiditems.manganese, 4, frigiditems.cobalt, 4, Items.thorium, 3,
                     frigiditems.lithium, 4, Items.graphite, 5));
-            consumeLiquid( Liquids.water, 120);
+            consumeLiquid( Liquids.water, 2);
             consumePower(10f);
         }};
     }
