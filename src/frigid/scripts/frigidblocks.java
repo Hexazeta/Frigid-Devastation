@@ -54,7 +54,7 @@ public class frigidblocks {
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(Items.copper, 55);
             craftTime = 80f;
-            size = 3;
+            size = 6;
             hasPower = true;
             hasLiquids = true;
             ambientSound = Sounds.smelter;
