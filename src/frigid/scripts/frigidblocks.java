@@ -20,7 +20,7 @@ public class frigidblocks {
             requirements(Category.crafting,
                     with(frigiditems.duralumin, 30, frigiditems.citrine, 25));
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(frigiditems.carborundum, 2);
+            outputItem = new ItemStack(frigiditems.carborundum, 3);
             craftTime = 40f;
             size = 3;
             hasPower = true;
@@ -36,7 +36,7 @@ public class frigidblocks {
             requirements(Category.crafting,
                     with(frigiditems.duralumin, 30, Items.graphite, 25));
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(frigiditems.kyanite, 2);
+            outputItem = new ItemStack(frigiditems.kyanite, 3);
             craftTime = 40f;
             size = 3;
             hasPower = true;
@@ -52,7 +52,7 @@ public class frigidblocks {
             requirements(Category.crafting,
                     with(Items.graphite, 1));
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(Items.copper, 55);
+            outputItem = new ItemStack(Items.copper, 24);
             craftTime = 80f;
             size = 6;
             hasPower = true;
