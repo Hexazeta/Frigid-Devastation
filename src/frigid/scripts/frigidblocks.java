@@ -24,7 +24,7 @@ public class frigidblocks {
             outputItem = new ItemStack(frigiditems.carborundum, 3);
             craftTime = 40f;
             size = 3;
-            hasPower = true;
+            hasPower = false;
             hasLiquids = false;
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
@@ -41,7 +41,7 @@ public class frigidblocks {
             outputItem = new ItemStack(frigiditems.kyanite, 3);
             craftTime = 40f;
             size = 3;
-            hasPower = true;
+            hasPower = false;
             hasLiquids = false;
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
@@ -67,7 +67,7 @@ public class frigidblocks {
                     frigiditems.manganese, 4, frigiditems.cobalt, 4, Items.thorium, 3,
                     frigiditems.lithium, 4, Items.graphite, 5));
             consumeLiquid( Liquids.water, 2);
-            consumePower(10f);
+            consumePower(100f);
         }};
     }
 }
