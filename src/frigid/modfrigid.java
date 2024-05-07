@@ -9,6 +9,7 @@ public class modfrigid extends Mod{
         EntityRegistry.register();
         frigidunits.load();
         frigiditems.load();
+        frigidblocks.load();
     }
 
     private static class EntityRegistry {
