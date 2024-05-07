@@ -62,7 +62,8 @@ public class frigidblocks {
 
             consumeItems(with(frigiditems.citrine, 5, frigiditems.cryolite, 5,
                     frigiditems.manganese, 4, frigiditems.cobalt, 4, Items.thorium, 3,
-                    frigiditems.lithium, 4, Items.graphite, 5, Liquids.water, 120));
+                    frigiditems.lithium, 4, Items.graphite, 5));
+            consumeLiquid( Liquids.water, 120);
             consumePower(10f);
         }};
     }
