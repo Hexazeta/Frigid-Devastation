@@ -16,7 +16,7 @@ public class frigidblocks {
 
     public static void load(){
 
-        carborundumCompressor = new GenericCrafter("carborundum-compressor"){{
+        carborundumCompressor = new HeatCrafter("carborundum-compressor"){{
             requirements(Category.crafting,
                     with(frigiditems.duralumin, 30, frigiditems.citrine, 25));
             itemCapacity = 20;
@@ -24,13 +24,13 @@ public class frigidblocks {
             outputItem = new ItemStack(frigiditems.carborundum, 3);
             craftTime = 40f;
             size = 3;
+            heatRequirement = 3;
             hasPower = false;
             hasLiquids = false;
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
 
             consumeItems(with(frigiditems.citrine, 3, Items.graphite, 2));
-            consumePower(0.50f);
         }};
 
         kyanitePress = new GenericCrafter("kyanite-press"){{
@@ -47,10 +47,9 @@ public class frigidblocks {
             ambientSoundVolume = 0.07f;
 
             consumeItems(with(frigiditems.citrine, 3, frigiditems.cryolite, 2));
-            consumePower(0.50f);
         }};
 
-        metalAmalgamate = new GenericCrafter("metal-amalgamate"){{
+        metalAmalgamate = new HeatCrafter("metal-amalgamate"){{
             requirements(Category.crafting,
                     with(Items.graphite, 1));
             itemCapacity = 120;
@@ -58,6 +57,7 @@ public class frigidblocks {
             outputItem = new ItemStack(Items.copper, 24);
             craftTime = 80f;
             size = 6;
+            heatRequirement = 120;
             hasPower = true;
             hasLiquids = true;
             ambientSound = Sounds.smelter;
