@@ -1,5 +1,6 @@
 package frigid.scripts;
 
+import arc.struct.Seq;
 import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.content.Liquids;
@@ -7,14 +8,25 @@ import mindustry.gen.*;
 import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.production.*;
+import mindustry.world.blocks.units.Reconstructor;
+import mindustry.world.blocks.units.UnitFactory;
+
 import static mindustry.type.ItemStack.*;
 
 public class frigidblocks {
 
     public static Block
-        carborundumCompressor,kyanitePress,duraluminSmelter,metalAmalgamate;
+
+        //crafters
+        carborundumCompressor,kyanitePress,duraluminSmelter,metalAmalgamate,
+
+        //unit factory or some shit idk
+        ballisticFactory,ballisticReconstructor;
+
 
     public static void load(){
+
+        //crafters
 
         carborundumCompressor = new HeatCrafter("carborundum-compressor"){{
             requirements(Category.crafting,
@@ -52,6 +64,7 @@ public class frigidblocks {
         metalAmalgamate = new HeatCrafter("metal-amalgamate"){{
             requirements(Category.crafting,
                     with(Items.graphite, 1));
+            squareSprite = false;
             itemCapacity = 120;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(Items.copper, 30);
@@ -69,5 +82,31 @@ public class frigidblocks {
             consumeLiquid( Liquids.water, 2);
             consumePower(100f);
         }};
+
+        //unit factory
+        ballisticFactory = new UnitFactory("ground-factory"){{
+            requirements(Category.units, with(Items.copper, 50, Items.lead, 120, Items.silicon, 80));
+            plans = Seq.with(
+                    new UnitPlan(frigidunits.ceres,
+                            60f * 15, with(Items.silicon, 10, Items.lead, 10))
+            );
+            size = 3;
+            consumePower(1.2f);
+        }};
+
+        ballisticReconstructor = new Reconstructor("ballistic-reconstructor"){{
+            requirements(Category.units, with(Items.lead, 650, Items.silicon, 450, Items.titanium, 350, Items.thorium, 650));
+
+            size = 5;
+            consumePower(6f);
+            consumeItems(with(Items.silicon, 130, Items.titanium, 80, Items.metaglass, 40));
+
+            constructTime = 60f * 30f;
+
+            upgrades.addAll(
+                    new UnitType[]{frigidunits.ceres, frigidunits.haumea}
+            );
+        }};
+
     }
 }

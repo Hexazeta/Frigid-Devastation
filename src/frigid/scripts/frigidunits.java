@@ -17,7 +17,7 @@ public class frigidunits {
             lunar,
 
             //ballistic,ground
-            ballistic,
+            ceres,haumea,
             
             //spiker kaboom
             spiker;
@@ -44,7 +44,6 @@ public class frigidunits {
             alwaysUnlocked = true;
 
             weapons.add(new Weapon("small-basic-weapon"){{
-                top = false;
                 reload = 15f;
                 x = 2.75f;
                 y = 1f;
@@ -94,7 +93,21 @@ public class frigidunits {
             }});
         }};
 
-        ballistic = new UnitType("ballistic"){{
+        ceres = new UnitType("ceres"){{
+            constructor = MechUnit::create;
+            aiController = GroundAI::new;
+
+            speed = 1f;
+            hitSize = 6f;
+            rotateSpeed = 4.5f;
+            health = 700;
+            armor = 1f;
+
+            outlineColor = Color.valueOf("2b2626");
+
+        }};
+
+        haumea = new UnitType("haumea"){{
             constructor = MechUnit::create;
             aiController = GroundAI::new;
 
@@ -106,7 +119,8 @@ public class frigidunits {
 
             outlineColor = Color.valueOf("2b2626");
 
-            weapons.add(new Weapon("frigid-devastation-ballistic-weapon"){{
+            weapons.add(new Weapon("frigid-devastation-haumea-cannon"){{
+                layerOffset = -0.00001f;
                 top = false;
                 x = 14;
                 y = 0;
