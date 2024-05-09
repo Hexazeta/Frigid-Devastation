@@ -6,12 +6,13 @@ import mindustry.ai.types.GroundAI;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
 import mindustry.gen.*;
-import mindustry.graphics.Layer;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 
 public class frigidunits {
     public static UnitType
+            //core
+            luna,
 
             //ballistic,ground
             ballistic,
@@ -19,27 +20,26 @@ public class frigidunits {
             //spiker kaboom
             spiker;
 
-    public static void load() { 
+    public static void load() {
+        luna = new UnitType("luna"){{
+
+
+
+        }};
 
         ballistic = new UnitType("ballistic"){{
             constructor = MechUnit::create;
             aiController = GroundAI::new;
 
-            speed = 0.65f;
-            drag = 0.11f;
-            hitSize = 24f;
+            speed = 0.55f;
+            hitSize = 12f;
             rotateSpeed = 3f;
-            health = 5040;
+            health = 5000;
             armor = 6f;
-
-            shadowElevation = 0.1f;
-            groundLayer = Layer.legUnit - 1f;
-            targetAir = false;
-            researchCostMultiplier = 0f;
 
             outlineColor = Color.valueOf("2b2626");
 
-            weapons.add(new Weapon("ballistic-cannon"){{
+            weapons.add(new Weapon("ballistic-weapon"){{
                 x = 10;
                 y = 4;
 
@@ -54,14 +54,14 @@ public class frigidunits {
                 inaccuracy = 5f;
 
                 shootSound = Vars.tree.loadSound("pewpewpew");
-                bullet = new BasicBulletType(10, 120){{
+                bullet = new BasicBulletType(6, 120){{
                     width = 11;
                     height = 19;
-                    fragBullets = 2;
+                    fragBullets = 3;
                     fragLifeMin = 0f;
                     fragRandomSpread = 60f;
 
-                    fragBullet = new BasicBulletType(6, 24){{
+                    fragBullet = new BasicBulletType(3, 24){{
                         width = 3;
                         height = 6;
                     }};

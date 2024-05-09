@@ -54,9 +54,9 @@ public class frigidblocks {
                     with(Items.graphite, 1));
             itemCapacity = 120;
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(Items.copper, 24);
+            outputItem = new ItemStack(Items.copper, 30);
             craftTime = 80f;
-            size = 6;
+            size = 7;
             heatRequirement = 120;
             hasPower = true;
             hasLiquids = true;
