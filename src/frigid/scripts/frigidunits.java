@@ -48,11 +48,10 @@ public class frigidunits {
                 ejectEffect = Fx.casing3;
                 shoot.shots = 2;
                 shoot.shotDelay = 4f;
-                range = 25;
                 alternate = true;
                 mirror = true;
                 reload = 24f;
-                inaccuracy = 10f;
+                inaccuracy = 5f;
 
                 shootSound = Vars.tree.loadSound("pewpewpew");
                 bullet = new BasicBulletType(10, 120){{
@@ -62,12 +61,11 @@ public class frigidunits {
                     fragLifeMin = 0f;
                     fragRandomSpread = 60f;
 
-                    fragBullet = new BasicBulletType(3, 24){{
+                    fragBullet = new BasicBulletType(6, 24){{
                         width = 3;
                         height = 6;
-
                     }};
-                    }};
+                }};
             }});
         }};
 
