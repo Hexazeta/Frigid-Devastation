@@ -105,6 +105,35 @@ public class frigidunits {
 
             outlineColor = Color.valueOf("2b2626");
 
+            weapons.add(new Weapon("frigid-devastation-ceres-weapon"){{
+                top = false;
+                 x = 2;
+                 y = 0;
+
+                reload = 6f;
+                mirror = true;
+                ejectEffect = Fx.casing1;
+
+                bullet = new BasicBulletType(3f, 24){{
+                    x = 3;
+                    y = 7;
+                }};
+            }});
+
+            weapons.add(new Weapon("frigid-devastation-ceres-weapon"){{
+                top = false;
+                x = 0;
+                y = 2;
+
+                reload = 6f;
+                mirror = true;
+                ejectEffect = Fx.casing1;
+
+                bullet = new BasicBulletType(3f, 24){{
+                    x = 3;
+                    y = 7;
+                }};
+            }});
         }};
 
         haumea = new UnitType("haumea"){{
