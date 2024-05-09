@@ -3,6 +3,7 @@ package frigid.scripts;
 import mindustry.*;
 import arc.graphics.Color;
 import mindustry.ai.types.GroundAI;
+import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
 import mindustry.gen.*;
 import mindustry.graphics.Layer;
@@ -24,7 +25,7 @@ public class frigidunits {
             constructor = MechUnit::create;
             aiController = GroundAI::new;
 
-            speed = 0.75f;
+            speed = 0.65f;
             drag = 0.11f;
             hitSize = 24f;
             rotateSpeed = 3f;
@@ -39,10 +40,14 @@ public class frigidunits {
             outlineColor = Color.valueOf("2b2626");
 
             weapons.add(new Weapon("ballistic-cannon"){{
-
                 x = 10;
                 y = 4;
-                shoot.shots = 3;
+
+                recoil = 2f;
+                shake = 1f;
+                ejectEffect = Fx.casing3;
+                shoot.shots = 2;
+                shoot.shotDelay = 4f;
                 range = 25;
                 alternate = true;
                 mirror = true;
@@ -50,10 +55,18 @@ public class frigidunits {
                 inaccuracy = 10f;
 
                 shootSound = Vars.tree.loadSound("pewpewpew");
-                bullet = new BasicBulletType(6, 120){{
-                    fragBullets = 5;
+                bullet = new BasicBulletType(10, 120){{
                     width = 11;
                     height = 19;
+                    fragBullets = 2;
+                    fragLifeMin = 0f;
+                    fragRandomSpread = 60f;
+
+                    fragBullet = new BasicBulletType(3, 24){{
+                        width = 3;
+                        height = 6;
+
+                    }};
                     }};
             }});
         }};
