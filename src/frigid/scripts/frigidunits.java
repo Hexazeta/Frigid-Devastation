@@ -69,7 +69,7 @@ public class frigidunits {
             }});
 
             weapons.add(new Weapon("small-mount-weapon"){{
-                top = false;
+                layerOffset = -0.00001f;
                 reload = 15f;
                 x = 1f;
                 y = 2f;
@@ -106,9 +106,10 @@ public class frigidunits {
 
             outlineColor = Color.valueOf("2b2626");
 
-            weapons.add(new Weapon("ballistic-weapon"){{
-                x = 12;
-                y = 6;
+            weapons.add(new Weapon("frigid-devastation-ballistic-weapon"){{
+                top = false;
+                x = 14;
+                y = 0;
 
                 recoil = 2f;
                 shake = 1f;
