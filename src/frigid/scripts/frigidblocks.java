@@ -84,7 +84,7 @@ public class frigidblocks {
         }};
 
         //unit factory
-        ballisticFactory = new UnitFactory("ground-factory"){{
+        ballisticFactory = new UnitFactory("ballistic-factory"){{
             requirements(Category.units, with(Items.copper, 50, Items.lead, 120, Items.silicon, 80));
             plans = Seq.with(
                     new UnitPlan(frigidunits.ceres,

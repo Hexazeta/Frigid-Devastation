@@ -13,6 +13,10 @@ import mindustry.type.Weapon;
 
 public class frigidunits {
     public static UnitType
+
+            //tester
+            tester,
+
             //core
             lunar,
 
@@ -23,6 +27,30 @@ public class frigidunits {
             spiker;
 
     public static void load() {
+        tester = new UnitType("tester"){{
+            aiController = GroundAI::new;
+            constructor = MechUnit::create;
+
+            speed = 10;
+            rotateSpeed = 100;
+            health = 69420;
+            armor = 69420;
+
+            weapons.add(new Weapon("large-weapon"){{
+                reload = 50f;
+                x = 4f;
+                y = 2f;
+                top = false;
+                ejectEffect = Fx.casing1;
+
+                bullet = new BasicBulletType(5f, 9){{
+                    width = 7f;
+                    height = 9f;
+                    lifetime = 60f;
+                }};
+            }});
+        }};
+
         lunar = new UnitType("lunar"){{
             aiController = BuilderAI::new;
             constructor = UnitEntity::create;
@@ -44,6 +72,7 @@ public class frigidunits {
             alwaysUnlocked = true;
 
             weapons.add(new Weapon("small-basic-weapon"){{
+                top = false;
                 reload = 15f;
                 x = 2.75f;
                 y = 1f;
@@ -68,7 +97,7 @@ public class frigidunits {
             }});
 
             weapons.add(new Weapon("small-mount-weapon"){{
-                layerOffset = -0.00001f;
+                top = false;
                 reload = 15f;
                 x = 1f;
                 y = 2f;
@@ -105,35 +134,7 @@ public class frigidunits {
 
             outlineColor = Color.valueOf("2b2626");
 
-            weapons.add(new Weapon("frigid-devastation-ceres-weapon"){{
-                top = false;
-                 x = 2;
-                 y = 0;
 
-                reload = 6f;
-                mirror = true;
-                ejectEffect = Fx.casing1;
-
-                bullet = new BasicBulletType(3f, 24){{
-                    x = 3;
-                    y = 7;
-                }};
-            }});
-
-            weapons.add(new Weapon("frigid-devastation-ceres-weapon"){{
-                top = false;
-                x = 0;
-                y = 2;
-
-                reload = 6f;
-                mirror = true;
-                ejectEffect = Fx.casing1;
-
-                bullet = new BasicBulletType(3f, 24){{
-                    x = 3;
-                    y = 7;
-                }};
-            }});
         }};
 
         haumea = new UnitType("haumea"){{
