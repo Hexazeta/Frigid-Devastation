@@ -37,16 +37,56 @@ public class frigidunits {
             armor = 69420;
 
             weapons.add(new Weapon("large-weapon"){{
-                reload = 50f;
+                reload = 120f;
                 x = 4f;
                 y = 2f;
                 top = false;
-                ejectEffect = Fx.casing1;
+                ejectEffect = Fx.casing4;
 
-                bullet = new BasicBulletType(5f, 9){{
-                    width = 7f;
-                    height = 9f;
+                recoil = 6f;
+                shake = 3f;
+                shoot.shots = 3;
+                shoot.shotDelay = 6f;
+                alternate = true;
+                mirror = true;
+                inaccuracy = 10f;
+
+                bullet = new BasicBulletType(8f, 720){{
+                    width = 19f;
+                    height = 29f;
                     lifetime = 60f;
+                    shootEffect = Fx.shootBig;
+
+                    hitEffect = Fx.blastExplosion;
+                    splashDamage = 36f;
+                    splashDamageRadius = 17f;
+
+                    fragBullets = 7;
+                    fragLifeMin = 0f;
+                    fragRandomSpread = 60f;
+
+                    fragBullet = new BasicBulletType(6f,120){{
+                        width = 9f;
+                        height = 14;
+                        lifetime = 60;
+
+                        hitEffect = Fx.flakExplosionBig;
+                        splashDamage = 6f;
+                        splashDamageRadius = 7f;
+
+                        fragBullets = 7;
+                        fragLifeMin = 0f;
+                        fragRandomSpread = 60f;
+
+                        fragBullet = new BasicBulletType(3f,24){{
+                            width = 4f;
+                            height = 7;
+                            lifetime = 60;
+
+                            hitEffect = Fx.titanExplosion;
+                        }};
+
+                    }};
                 }};
             }});
         }};
@@ -137,7 +177,7 @@ public class frigidunits {
             weapons.add(new Weapon("frigid-devastation-ceres-weapon"){{
                 top = false;
                 x = 1f;
-                y = 1f;
+                y = 0.001f;
 
                 reload = 6f;
                 mirror = true;
@@ -180,13 +220,15 @@ public class frigidunits {
 
                 shootSound = Vars.tree.loadSound("pewpewpew");
                 bullet = new BasicBulletType(6f, 120){{
+                    hitEffect = Fx.blastExplosion;
                     width = 11;
                     height = 19;
-                    fragBullets = 3;
+                    fragBullets = 5;
                     fragLifeMin = 0f;
                     fragRandomSpread = 60f;
 
                     fragBullet = new BasicBulletType(3f, 24){{
+                        hitEffect = Fx.flakExplosion;
                         width = 3;
                         height = 6;
                     }};

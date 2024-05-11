@@ -33,8 +33,8 @@ public class frigidblocks {
                     with(frigiditems.cryolite, 30, Items.graphite, 25));
             itemCapacity = 20;
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(frigiditems.carborundum, 3);
-            craftTime = 40f;
+            outputItem = new ItemStack(frigiditems.duralumin, 3);
+            craftTime = 80f;
             size = 3;
             heatRequirement = 3;
             hasPower = false;
@@ -114,7 +114,8 @@ public class frigidblocks {
 
         ballisticReconstructor = new Reconstructor("ballistic-reconstructor"){{
             requirements(Category.units, with(
-                    Items.graphite, 350, frigiditems.carborundum, 550, frigiditems.duralumin, 350, frigiditems.kyanite, 550));
+                    Items.graphite, 350, frigiditems.carborundum, 550,
+                    frigiditems.duralumin, 350, frigiditems.kyanite, 550));
 
             size = 5;
             consumePower(6f);
