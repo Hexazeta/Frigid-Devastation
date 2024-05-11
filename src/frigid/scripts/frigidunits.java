@@ -27,14 +27,14 @@ public class frigidunits {
             spiker;
 
     public static void load() {
-        tester = new UnitType("tester"){{
+        tester = new UnitType("dagger"){{
             aiController = GroundAI::new;
             constructor = MechUnit::create;
 
             speed = 10;
             rotateSpeed = 100;
-            health = 69420;
-            armor = 69420;
+            health = 36000;
+            armor = 24;
 
             weapons.add(new Weapon("large-weapon"){{
                 reload = 120f;
@@ -49,7 +49,7 @@ public class frigidunits {
                 shoot.shotDelay = 6f;
                 alternate = true;
                 mirror = true;
-                inaccuracy = 10f;
+                inaccuracy = 7.5f;
 
                 bullet = new BasicBulletType(8f, 720){{
                     width = 19f;
@@ -78,12 +78,12 @@ public class frigidunits {
                         fragLifeMin = 0f;
                         fragRandomSpread = 60f;
 
-                        fragBullet = new BasicBulletType(3f,24){{
+                        fragBullet = new BasicBulletType(4f,24){{
                             width = 4f;
                             height = 7;
                             lifetime = 60;
 
-                            hitEffect = Fx.titanExplosion;
+                            hitEffect = Fx.sapped;
                         }};
 
                     }};
