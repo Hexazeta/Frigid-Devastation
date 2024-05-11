@@ -28,6 +28,23 @@ public class frigidblocks {
 
         //crafters
 
+        duraluminSmelter = new HeatCrafter("duralumin-smelter"){{
+            requirements(Category.crafting,
+                    with(frigiditems.cryolite, 30, Items.graphite, 25));
+            itemCapacity = 20;
+            craftEffect = Fx.smeltsmoke;
+            outputItem = new ItemStack(frigiditems.carborundum, 3);
+            craftTime = 40f;
+            size = 3;
+            heatRequirement = 3;
+            hasPower = false;
+            hasLiquids = false;
+            ambientSound = Sounds.smelter;
+            ambientSoundVolume = 0.07f;
+
+            consumeItems(with(frigiditems.cryolite, 3));
+        }};
+
         carborundumCompressor = new HeatCrafter("carborundum-compressor"){{
             requirements(Category.crafting,
                     with(frigiditems.duralumin, 30, frigiditems.citrine, 25));
@@ -36,7 +53,7 @@ public class frigidblocks {
             outputItem = new ItemStack(frigiditems.carborundum, 3);
             craftTime = 40f;
             size = 3;
-            heatRequirement = 3;
+            heatRequirement = 5;
             hasPower = false;
             hasLiquids = false;
             ambientSound = Sounds.smelter;
@@ -85,21 +102,23 @@ public class frigidblocks {
 
         //unit factory
         ballisticFactory = new UnitFactory("ballistic-factory"){{
-            requirements(Category.units, with(Items.copper, 50, Items.lead, 120, Items.silicon, 80));
+            requirements(Category.units, with(
+                    frigiditems.cryolite, 50, frigiditems.citrine, 120, Items.graphite, 80));
             plans = Seq.with(
                     new UnitPlan(frigidunits.ceres,
-                            60f * 15, with(Items.silicon, 10, Items.lead, 10))
+                            60f * 15, with(frigiditems.citrine, 45, frigiditems.duralumin, 20))
             );
             size = 3;
             consumePower(1.2f);
         }};
 
         ballisticReconstructor = new Reconstructor("ballistic-reconstructor"){{
-            requirements(Category.units, with(Items.lead, 650, Items.silicon, 450, Items.titanium, 350, Items.thorium, 650));
+            requirements(Category.units, with(
+                    Items.graphite, 350, frigiditems.carborundum, 550, frigiditems.duralumin, 350, frigiditems.kyanite, 550));
 
             size = 5;
             consumePower(6f);
-            consumeItems(with(Items.silicon, 130, Items.titanium, 80, Items.metaglass, 40));
+            consumeItems(with(frigiditems.carborundum, 130, frigiditems.kyanite, 80, frigiditems.duralumin, 90));
 
             constructTime = 60f * 30f;
 
