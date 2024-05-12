@@ -89,7 +89,7 @@ public class frigidblocks {
             itemCapacity = 20;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.carborundum, 3);
-            craftTime = 40f;
+            craftTime = 60f;
             size = 3;
             heatRequirement = 5;
             hasPower = false;
