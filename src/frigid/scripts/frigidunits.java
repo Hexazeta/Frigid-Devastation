@@ -33,7 +33,7 @@ public class frigidunits {
 
             speed = 10;
             rotateSpeed = 100;
-            health = 36000;
+            health = 18000;
             armor = 24;
 
             weapons.add(new Weapon("large-weapon"){{
@@ -51,7 +51,7 @@ public class frigidunits {
                 mirror = true;
                 inaccuracy = 7.5f;
 
-                bullet = new BasicBulletType(8f, 720){{
+                bullet = new BasicBulletType(8f, 216){{
                     width = 19f;
                     height = 29f;
                     lifetime = 60f;
@@ -65,7 +65,7 @@ public class frigidunits {
                     fragLifeMin = 0f;
                     fragRandomSpread = 60f;
 
-                    fragBullet = new BasicBulletType(6f,120){{
+                    fragBullet = new BasicBulletType(6f,36){{
                         width = 9f;
                         height = 14;
                         lifetime = 60;
@@ -78,7 +78,7 @@ public class frigidunits {
                         fragLifeMin = 0f;
                         fragRandomSpread = 60f;
 
-                        fragBullet = new BasicBulletType(4f,24){{
+                        fragBullet = new BasicBulletType(4f,6){{
                             width = 4f;
                             height = 7;
                             lifetime = 60;
@@ -169,7 +169,7 @@ public class frigidunits {
             speed = 1f;
             hitSize = 6f;
             rotateSpeed = 4.5f;
-            health = 700;
+            health = 350;
             armor = 1f;
 
             outlineColor = Color.valueOf("2b2626");
@@ -183,7 +183,7 @@ public class frigidunits {
                 mirror = true;
                 ejectEffect = Fx.casing1;
 
-                bullet = new BasicBulletType(3f, 24){{
+                bullet = new BasicBulletType(3f, 6){{
                     x = 3;
                     y = 7;
                 }};
@@ -195,9 +195,9 @@ public class frigidunits {
             aiController = GroundAI::new;
 
             speed = 0.55f;
-            hitSize = 12f;
+            hitSize = 24f;
             rotateSpeed = 3f;
-            health = 5000;
+            health = 2500;
             armor = 6f;
 
             outlineColor = Color.valueOf("2b2626");
@@ -219,7 +219,7 @@ public class frigidunits {
                 inaccuracy = 5f;
 
                 shootSound = Vars.tree.loadSound("pewpewpew");
-                bullet = new BasicBulletType(6f, 120){{
+                bullet = new BasicBulletType(6f, 36){{
                     hitEffect = Fx.blastExplosion;
                     width = 11;
                     height = 19;
@@ -227,7 +227,7 @@ public class frigidunits {
                     fragLifeMin = 0f;
                     fragRandomSpread = 60f;
 
-                    fragBullet = new BasicBulletType(3f, 24){{
+                    fragBullet = new BasicBulletType(3f, 6){{
                         hitEffect = Fx.flakExplosion;
                         width = 3;
                         height = 6;

@@ -34,7 +34,7 @@ public class frigidblocks {
             itemCapacity = 20;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.duralumin, 3);
-            craftTime = 80f;
+            craftTime = 60f;
             size = 3;
             heatRequirement = 3;
             hasPower = false;
