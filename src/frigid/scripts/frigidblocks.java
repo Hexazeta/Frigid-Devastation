@@ -1,6 +1,5 @@
 package frigid.scripts;
 
-import arc.graphics.Color;
 import arc.struct.Seq;
 import mindustry.content.Fx;
 import mindustry.content.Items;
@@ -8,18 +7,21 @@ import mindustry.content.Liquids;
 import mindustry.gen.*;
 import mindustry.type.*;
 import mindustry.world.*;
+import mindustry.world.blocks.distribution.Conveyor;
+import mindustry.world.blocks.distribution.Duct;
+import mindustry.world.blocks.distribution.StackConveyor;
 import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.units.Reconstructor;
 import mindustry.world.blocks.units.UnitFactory;
-import mindustry.world.draw.DrawDefault;
-import mindustry.world.draw.DrawFlame;
-import mindustry.world.draw.DrawMulti;
 
 import static mindustry.type.ItemStack.*;
 
 public class frigidblocks {
 
     public static Block
+
+        //item transfer
+        conveyor,platedConveyor,multiPLatedConveyor,
 
         //crafters
         carborundumCompressor,kyanitePress,duraluminSmelter,metalAmalgamate,
@@ -29,6 +31,38 @@ public class frigidblocks {
 
 
     public static void load(){
+
+        //item transfer
+        conveyor = new Duct("conveyor"){{
+            requirements(Category.distribution, with(Items.graphite, 1));
+            health = 90;
+            speed = 4f;
+        }};;
+
+        platedConveyor = new StackConveyor("plated-conveyor"){{
+            requirements(Category.distribution, with(frigiditems.carborundum, 1,
+                    frigiditems.kyanite, 1, frigiditems.manganese, 1, frigiditems.duralumin, 1));
+            health = 160;
+            speed = 5f / 60f;
+            itemCapacity = 10;
+        }};
+
+        multiPLatedConveyor = new StackConveyor("multi-plated-conveyor"){{
+            requirements(Category.distribution, with(
+                    Items.thorium, 1,frigiditems.lithium, 1, frigiditems.soldrite, 1));
+            health = 250;
+            speed = 5f / 60f;
+            itemCapacity = 20;
+
+            outputRouter = false;
+            hasPower = true;
+            consumesPower = true;
+            conductivePower = true;
+
+            underBullets = true;
+            baseEfficiency = 1f;
+            consumePower(1f / 60f);
+        }};
 
         //crafters
 
@@ -41,11 +75,11 @@ public class frigidblocks {
             craftTime = 60f;
             size = 3;
             heatRequirement = 3;
-            hasPower = false;
+            hasPower = true;
             hasLiquids = false;
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
-
+            consumePower(15f);
             consumeItems(with(frigiditems.cryolite, 3));
         }};
 
@@ -62,7 +96,6 @@ public class frigidblocks {
             hasLiquids = false;
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
-
             consumeItems(with(frigiditems.citrine, 3, Items.graphite, 2));
         }};
 
@@ -74,11 +107,11 @@ public class frigidblocks {
             outputItem = new ItemStack(frigiditems.kyanite, 3);
             craftTime = 40f;
             size = 3;
-            hasPower = false;
+            hasPower = true;
             hasLiquids = false;
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
-
+            consumePower(35f);
             consumeItems(with(frigiditems.citrine, 3, frigiditems.cryolite, 2));
         }};
 
