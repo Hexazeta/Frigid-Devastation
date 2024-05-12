@@ -1,5 +1,6 @@
 package frigid.scripts;
 
+import arc.graphics.Color;
 import arc.struct.Seq;
 import mindustry.content.Fx;
 import mindustry.content.Items;
@@ -10,6 +11,9 @@ import mindustry.world.*;
 import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.units.Reconstructor;
 import mindustry.world.blocks.units.UnitFactory;
+import mindustry.world.draw.DrawDefault;
+import mindustry.world.draw.DrawFlame;
+import mindustry.world.draw.DrawMulti;
 
 import static mindustry.type.ItemStack.*;
 
@@ -33,7 +37,7 @@ public class frigidblocks {
                     with(frigiditems.cryolite, 30, Items.graphite, 25));
             itemCapacity = 20;
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(frigiditems.duralumin, 3);
+            outputItem = new ItemStack(frigiditems.duralumin, 2);
             craftTime = 60f;
             size = 3;
             heatRequirement = 3;
