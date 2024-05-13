@@ -7,7 +7,6 @@ import mindustry.content.Liquids;
 import mindustry.gen.*;
 import mindustry.type.*;
 import mindustry.world.*;
-import mindustry.world.blocks.distribution.Conveyor;
 import mindustry.world.blocks.distribution.Duct;
 import mindustry.world.blocks.distribution.StackConveyor;
 import mindustry.world.blocks.production.*;
@@ -37,7 +36,7 @@ public class frigidblocks {
             requirements(Category.distribution, with(Items.graphite, 1));
             health = 90;
             speed = 4f;
-        }};;
+        }};
 
         platedConveyor = new StackConveyor("plated-conveyor"){{
             requirements(Category.distribution, with(frigiditems.carborundum, 1,
@@ -61,7 +60,7 @@ public class frigidblocks {
 
             underBullets = true;
             baseEfficiency = 1f;
-            consumePower(1f / 60f);
+            consumePower(2f / 60f);
         }};
 
         //crafters
@@ -71,8 +70,8 @@ public class frigidblocks {
                     with(frigiditems.cryolite, 30, Items.graphite, 25));
             itemCapacity = 20;
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(frigiditems.duralumin, 2);
-            craftTime = 60f;
+            outputItem = new ItemStack(frigiditems.duralumin, 1);
+            craftTime = 45f;
             size = 3;
             heatRequirement = 3;
             hasPower = true;

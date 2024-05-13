@@ -176,16 +176,30 @@ public class frigidunits {
 
             weapons.add(new Weapon("frigid-devastation-ceres-weapon"){{
                 top = false;
-                x = 1f;
-                y = 0.001f;
+                x = 6f;
+                y = 0f;
 
                 reload = 6f;
                 mirror = true;
                 ejectEffect = Fx.casing1;
 
                 bullet = new BasicBulletType(3f, 6){{
-                    x = 3;
-                    y = 7;
+                    width = 3;
+                    height = 7;
+                }};
+            }});
+
+            weapons.add(new Weapon("frigid-devastation-ceres-weapon"){{
+                x = 10f;
+                y = 0f;
+
+                reload = 6f;
+                mirror = true;
+                ejectEffect = Fx.casing1;
+
+                bullet = new BasicBulletType(3f, 6){{
+                    width = 3;
+                    height = 7;
                 }};
             }});
         }};
