@@ -20,7 +20,7 @@ public class frigidblocks {
     public static Block
 
         //item transfer
-        conveyor,platedConveyor,multiPLatedConveyor,
+        duct,platedConveyor,multiPLatedConveyor,
 
         //crafters
         carborundumCompressor,kyanitePress,duraluminSmelter,metalAmalgamate,
@@ -32,10 +32,10 @@ public class frigidblocks {
     public static void load(){
 
         //item transfer
-        conveyor = new Duct("conveyor"){{
+        duct = new Duct("duct"){{
             requirements(Category.distribution, with(Items.graphite, 1));
             health = 90;
-            speed = 4f;
+            speed = 4.5f;
         }};
 
         platedConveyor = new StackConveyor("plated-conveyor"){{

@@ -51,7 +51,7 @@ public class frigidunits {
                 mirror = true;
                 inaccuracy = 7.5f;
 
-                bullet = new BasicBulletType(8f, 216){{
+                bullet = new BasicBulletType(8f, 128){{
                     width = 19f;
                     height = 29f;
                     lifetime = 60f;
@@ -65,7 +65,7 @@ public class frigidunits {
                     fragLifeMin = 0f;
                     fragRandomSpread = 60f;
 
-                    fragBullet = new BasicBulletType(6f,36){{
+                    fragBullet = new BasicBulletType(6f,32){{
                         width = 9f;
                         height = 14;
                         lifetime = 60;
@@ -78,7 +78,7 @@ public class frigidunits {
                         fragLifeMin = 0f;
                         fragRandomSpread = 60f;
 
-                        fragBullet = new BasicBulletType(4f,6){{
+                        fragBullet = new BasicBulletType(4f,4){{
                             width = 4f;
                             height = 7;
                             lifetime = 60;
@@ -176,32 +176,21 @@ public class frigidunits {
 
             weapons.add(new Weapon("frigid-devastation-ceres-weapon"){{
                 top = false;
-                x = 6f;
+                x = 8f;
                 y = 0f;
 
                 reload = 6f;
                 mirror = true;
-                ejectEffect = Fx.casing1;
+                ejectEffect = Fx.casing2Double;
+                shoot.shots = 2;
+                inaccuracy = 1;
 
-                bullet = new BasicBulletType(3f, 6){{
-                    width = 3;
-                    height = 7;
+                bullet = new BasicBulletType(3f, 15){{
+                    width = 5;
+                    height = 11;
                 }};
             }});
 
-            weapons.add(new Weapon("frigid-devastation-ceres-weapon"){{
-                x = 10f;
-                y = 0f;
-
-                reload = 6f;
-                mirror = true;
-                ejectEffect = Fx.casing1;
-
-                bullet = new BasicBulletType(3f, 6){{
-                    width = 3;
-                    height = 7;
-                }};
-            }});
         }};
 
         haumea = new UnitType("haumea"){{
