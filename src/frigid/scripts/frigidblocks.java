@@ -9,9 +9,13 @@ import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.distribution.Duct;
 import mindustry.world.blocks.distribution.StackConveyor;
+import mindustry.world.blocks.heat.HeatProducer;
 import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.units.Reconstructor;
 import mindustry.world.blocks.units.UnitFactory;
+import mindustry.world.draw.DrawDefault;
+import mindustry.world.draw.DrawHeatOutput;
+import mindustry.world.draw.DrawMulti;
 
 import static mindustry.type.ItemStack.*;
 
@@ -23,7 +27,7 @@ public class frigidblocks {
         duct,platedConveyor,multiPLatedConveyor,
 
         //crafters
-        carborundumCompressor,kyanitePress,duraluminSmelter,metalAmalgamate,
+        heater,carborundumCompressor,kyanitePress,duraluminSmelter,metalAmalgamate,
 
         //unit factory or some shit idk
         ballisticFactory,ballisticReconstructor;
@@ -64,6 +68,17 @@ public class frigidblocks {
         }};
 
         //crafters
+
+        heater = new HeatProducer("heater"){{
+            requirements(Category.crafting, with(Items.graphite, 50));
+
+            drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
+            size = 2;
+            heatOutput = 3f;
+            craftTime = 60f * 8f;
+            ambientSound = Sounds.hum;
+            consumeItem(Items.graphite);
+        }};
 
         duraluminSmelter = new HeatCrafter("duralumin-smelter"){{
             requirements(Category.crafting,
