@@ -39,7 +39,7 @@ public class frigidblocks {
         duct = new Duct("duct"){{
             requirements(Category.distribution, with(Items.graphite, 1));
             health = 90;
-            speed = 4.5f;
+            speed = 5f;
         }};
 
         platedConveyor = new StackConveyor("plated-conveyor"){{
@@ -85,7 +85,7 @@ public class frigidblocks {
                     with(frigiditems.cryolite, 30, Items.graphite, 25));
             itemCapacity = 20;
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(frigiditems.duralumin, 1);
+            outputItem = new ItemStack(frigiditems.duralumin, 2);
             craftTime = 45f;
             size = 3;
             heatRequirement = 3;
