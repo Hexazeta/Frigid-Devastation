@@ -10,6 +10,8 @@ import mindustry.world.*;
 import mindustry.world.blocks.distribution.Duct;
 import mindustry.world.blocks.distribution.StackConveyor;
 import mindustry.world.blocks.heat.HeatProducer;
+import mindustry.world.blocks.power.ConsumeGenerator;
+import mindustry.world.blocks.power.HeaterGenerator;
 import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.units.Reconstructor;
 import mindustry.world.blocks.units.UnitFactory;
@@ -24,10 +26,11 @@ public class frigidblocks {
     public static Block
 
         //item transfer
-        duct,platedConveyor,multiPLatedConveyor,
+        duct, platedConveyor, multiPLatedConveyor,
 
         //crafters
-        heater,carborundumCompressor,kyanitePress,duraluminSmelter,metalAmalgamate,
+        heater, burner, carborundumCompressor, kyanitePress, duraluminSmelter, metalAmalgamate,
+        compositeManufacture,
 
         //unit factory or some shit idk
         ballisticFactory,ballisticReconstructor;
@@ -39,7 +42,7 @@ public class frigidblocks {
         duct = new Duct("duct"){{
             requirements(Category.distribution, with(Items.graphite, 1));
             health = 90;
-            speed = 5f;
+            speed = 3f;
         }};
 
         platedConveyor = new StackConveyor("plated-conveyor"){{
@@ -80,9 +83,25 @@ public class frigidblocks {
             consumeItem(Items.graphite);
         }};
 
+        burner = new HeaterGenerator("neoplasia-reactor"){{
+            requirements(Category.power, with(Items.graphite, 150));
+
+            size = 3;
+            liquidCapacity = 50f;
+
+            heatOutput = 5;
+            consumeLiquid(Liquids.water, 10f / 60f);
+            consumeItem(Items.graphite);
+
+            itemDuration = 60f * 3f;
+            itemCapacity = 10;
+
+            powerProduction = 2.5f;
+            }};
+
         duraluminSmelter = new HeatCrafter("duralumin-smelter"){{
             requirements(Category.crafting,
-                    with(frigiditems.cryolite, 30, Items.graphite, 25));
+                    with(frigiditems.cryolite, 150, Items.graphite, 100));
             itemCapacity = 20;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.duralumin, 2);
@@ -93,8 +112,24 @@ public class frigidblocks {
             hasLiquids = false;
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
-            consumePower(15f);
+            consumePower(1f);
             consumeItems(with(frigiditems.cryolite, 3));
+        }};
+
+        kyanitePress = new GenericCrafter("kyanite-press"){{
+            requirements(Category.crafting,
+                    with(frigiditems.duralumin, 30, Items.graphite, 25));
+            itemCapacity = 20;
+            craftEffect = Fx.smeltsmoke;
+            outputItem = new ItemStack(frigiditems.kyanite, 3);
+            craftTime = 40f;
+            size = 3;
+            hasPower = true;
+            hasLiquids = false;
+            ambientSound = Sounds.smelter;
+            ambientSoundVolume = 0.07f;
+            consumePower(2f / 3f);
+            consumeItems(with(frigiditems.citrine, 3, frigiditems.cryolite, 2));
         }};
 
         carborundumCompressor = new HeatCrafter("carborundum-compressor"){{
@@ -111,22 +146,6 @@ public class frigidblocks {
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
             consumeItems(with(frigiditems.citrine, 3, Items.graphite, 2));
-        }};
-
-        kyanitePress = new GenericCrafter("kyanite-press"){{
-            requirements(Category.crafting,
-                    with(frigiditems.duralumin, 30, Items.graphite, 25));
-            itemCapacity = 20;
-            craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(frigiditems.kyanite, 3);
-            craftTime = 40f;
-            size = 3;
-            hasPower = true;
-            hasLiquids = false;
-            ambientSound = Sounds.smelter;
-            ambientSoundVolume = 0.07f;
-            consumePower(35f);
-            consumeItems(with(frigiditems.citrine, 3, frigiditems.cryolite, 2));
         }};
 
         metalAmalgamate = new HeatCrafter("metal-amalgamate"){{
@@ -149,6 +168,21 @@ public class frigidblocks {
                     frigiditems.lithium, 4, Items.graphite, 5));
             consumeLiquid( Liquids.water, 2);
             consumePower(100f);
+        }};
+
+        compositeManufacture = new HeatCrafter("composite-manufacture"){{
+            requirements(Category.crafting,
+                    with(Items.graphite, 1));
+            outputItems = ItemStack.with(frigiditems.carborundum, 6,
+                    frigiditems.kyanite, 6, frigiditems.duralumin, 5);
+            size = 5;
+            heatRequirement = 10;
+            hasPower = true;
+            hasLiquids = false;
+            craftTime = 80f;
+            consumeItems(with(frigiditems.manganese, 2,frigiditems.citrine, 8,
+                    frigiditems.cryolite, 7, Items.graphite, 3));
+            consumePower(10f);
         }};
 
         //unit factory
