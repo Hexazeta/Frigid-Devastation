@@ -175,6 +175,7 @@ public class frigidblocks {
                     with(Items.graphite, 1));
             outputItems = ItemStack.with(frigiditems.carborundum, 6,
                     frigiditems.kyanite, 6, frigiditems.duralumin, 5);
+            itemCapacity = 30;
             size = 5;
             heatRequirement = 10;
             hasPower = true;
