@@ -10,9 +10,9 @@ import mindustry.world.*;
 import mindustry.world.blocks.distribution.Duct;
 import mindustry.world.blocks.distribution.StackConveyor;
 import mindustry.world.blocks.heat.HeatProducer;
-import mindustry.world.blocks.power.ConsumeGenerator;
 import mindustry.world.blocks.power.HeaterGenerator;
 import mindustry.world.blocks.production.*;
+import mindustry.world.blocks.storage.StorageBlock;
 import mindustry.world.blocks.units.Reconstructor;
 import mindustry.world.blocks.units.UnitFactory;
 import mindustry.world.draw.DrawDefault;
@@ -31,6 +31,9 @@ public class frigidblocks {
         //crafters
         heater, burner, carborundumCompressor, kyanitePress, duraluminSmelter, metalAmalgamate,
         compositeManufacture,
+
+        //payload
+        container,vault,silo,
 
         //unit factory or some shit idk
         ballisticFactory,ballisticReconstructor;
@@ -83,25 +86,23 @@ public class frigidblocks {
             consumeItem(Items.graphite);
         }};
 
-        burner = new HeaterGenerator("neoplasia-reactor"){{
+        burner = new HeaterGenerator("burner"){{
             requirements(Category.power, with(Items.graphite, 150));
-
+            squareSprite = false;
             size = 3;
             liquidCapacity = 50f;
-
             heatOutput = 5;
             consumeLiquid(Liquids.water, 10f / 60f);
             consumeItem(Items.graphite);
-
             itemDuration = 60f * 3f;
             itemCapacity = 10;
-
             powerProduction = 2.5f;
             }};
 
         duraluminSmelter = new HeatCrafter("duralumin-smelter"){{
             requirements(Category.crafting,
                     with(frigiditems.cryolite, 150, Items.graphite, 100));
+            squareSprite = false;
             itemCapacity = 20;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.duralumin, 2);
@@ -184,6 +185,29 @@ public class frigidblocks {
             consumeItems(with(frigiditems.manganese, 2,frigiditems.citrine, 8,
                     frigiditems.cryolite, 7, Items.graphite, 3));
             consumePower(10f);
+        }};
+
+        //payload
+        container = new StorageBlock("container"){{
+            requirements(Category.effect, with(Items.titanium, 100));
+            squareSprite = false;
+            size = 2;
+            itemCapacity = 400;
+            scaledHealth = 55;
+        }};
+
+        vault = new StorageBlock("vault"){{
+            requirements(Category.effect, with(Items.titanium, 100));
+            size = 3;
+            itemCapacity = 3000;
+            scaledHealth = 55;
+        }};
+
+        silo = new StorageBlock("silo"){{
+            requirements(Category.effect, with(Items.titanium, 100));
+            size = 4;
+            itemCapacity = 20000;
+            scaledHealth = 55;
         }};
 
         //unit factory
