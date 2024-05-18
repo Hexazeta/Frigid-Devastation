@@ -58,7 +58,7 @@ public class frigidblocks {
 
         multiPLatedConveyor = new StackConveyor("multi-plated-conveyor"){{
             requirements(Category.distribution, with(
-                    Items.thorium, 1,frigiditems.lithium, 1, frigiditems.soldrite, 1));
+                    Items.thorium, 1,frigiditems.lithium, 1, frigiditems.solidrite, 1));
             health = 250;
             speed = 5f / 60f;
             itemCapacity = 20;

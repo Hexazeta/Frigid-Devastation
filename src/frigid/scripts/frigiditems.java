@@ -7,7 +7,7 @@ public class frigiditems {
 
     public static Item citrine, duralumin, kyanite, carborundum, manganese,
             cobalt, lithium, cryolite, cythoride, chromium, nickel, mythril,
-            orichalcum, frostamalgum, mythrarite, soldrite, quantum, singularite;
+            orichalcum, frostamalgum, mythrarite, solidrite, quantum, singularite;
 
     public static void load() {
 
@@ -54,4 +54,13 @@ public class frigiditems {
         nickel = new Item("nickel"){{
             color = Color.valueOf("9e270d");
         }};
+
+        mythrarite = new Item("mythrarite"){{
+            color = Color.valueOf("899c8c");
+        }};
+
+        solidrite = new Item("solidrite"){{
+            color = Color.valueOf("d9d9d9");
+        }};
+
     }}
