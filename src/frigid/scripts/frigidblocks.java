@@ -29,8 +29,9 @@ public class frigidblocks {
         duct, platedConveyor, multiPLatedConveyor,
 
         //crafters
-        heater, burner, carborundumCompressor, kyanitePress, duraluminSmelter, metalAmalgamate,
-        compositeManufacture,
+        heater, burner, duraluminSmelter, kyanitePress, carborundumCompressor,
+        duraluminCrucible,kyaniteMultiPress,carborundumMultiCompressor,
+        cythorideMixer, metalAmalgamate, compositeManufacture,
 
         //payload
         container,vault,silo,
@@ -147,6 +148,73 @@ public class frigidblocks {
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
             consumeItems(with(frigiditems.citrine, 3, Items.graphite, 2));
+        }};
+
+        cythorideMixer = new GenericCrafter("cythoride-mixer"){{
+            requirements(Category.crafting,
+                    with(frigiditems.duralumin, 30, frigiditems.citrine, 25));
+            itemCapacity = 20;
+            craftEffect = Fx.smeltsmoke;
+            outputItem = new ItemStack(frigiditems.cythoride, 5);
+            craftTime = 60f;
+            size = 4;
+            hasPower = false;
+            hasLiquids = true;
+            ambientSound = Sounds.smelter;
+            ambientSoundVolume = 0.07f;
+            consumeItems(with(frigiditems.lithium, 7, Items.thorium, 3));
+            consumeLiquid( Liquids.water, 1f / 6f);
+        }};
+
+        duraluminCrucible = new HeatCrafter("duralumin-crucible"){{
+            requirements(Category.crafting,
+                    with(frigiditems.cryolite, 150, Items.graphite, 100));
+            squareSprite = false;
+            itemCapacity = 30;
+            craftEffect = Fx.smeltsmoke;
+            outputItem = new ItemStack(frigiditems.duralumin, 5);
+            craftTime = 35f;
+            size = 4;
+            heatRequirement = 8;
+            hasPower = true;
+            hasLiquids = false;
+            ambientSound = Sounds.smelter;
+            ambientSoundVolume = 0.07f;
+            consumePower(2.5f);
+            consumeItems(with(frigiditems.cryolite, 7));
+        }};
+
+        kyaniteMultiPress = new HeatCrafter("kyanite-multi-press"){{
+            requirements(Category.crafting,
+                    with(frigiditems.duralumin, 30, Items.graphite, 25));
+            itemCapacity = 30;
+            craftEffect = Fx.smeltsmoke;
+            outputItem = new ItemStack(frigiditems.kyanite, 6);
+            craftTime = 55f;
+            size = 4;
+            hasPower = true;
+            hasLiquids = false;
+            ambientSound = Sounds.smelter;
+            ambientSoundVolume = 0.07f;
+            heatRequirement = 5;
+            consumePower(5f / 2f);
+            consumeItems(with(frigiditems.citrine, 5, frigiditems.cryolite, 4));
+        }};
+
+        carborundumMultiCompressor = new HeatCrafter("carborundum-multi-compressor"){{
+            requirements(Category.crafting,
+                    with(frigiditems.duralumin, 30, frigiditems.citrine, 25));
+            itemCapacity = 30;
+            craftEffect = Fx.smeltsmoke;
+            outputItem = new ItemStack(frigiditems.carborundum, 8);
+            craftTime = 55f;
+            size = 4;
+            heatRequirement = 10;
+            hasPower = false;
+            hasLiquids = false;
+            ambientSound = Sounds.smelter;
+            ambientSoundVolume = 0.07f;
+            consumeItems(with(frigiditems.citrine, 3, Items.graphite, 5,frigiditems.manganese, 1));
         }};
 
         metalAmalgamate = new HeatCrafter("metal-amalgamate"){{
