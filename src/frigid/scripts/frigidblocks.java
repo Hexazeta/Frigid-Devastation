@@ -31,7 +31,8 @@ public class frigidblocks {
         //crafters
         heater, burner, duraluminSmelter, kyanitePress, carborundumCompressor,
         duraluminCrucible,kyaniteMultiPress,carborundumMultiCompressor,
-        cythorideMixer, metalAmalgamate, compositeManufacture,
+        cythorideMixer, metalAmalgamate, compositeManufacture, solidriteFoundry,
+        mythrariteMixer, smallMetalAmalgamate,
 
         //payload
         container,vault,silo,
@@ -162,6 +163,7 @@ public class frigidblocks {
             hasLiquids = true;
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
+            consumePower(3f);
             consumeItems(with(frigiditems.lithium, 7, Items.thorium, 3));
             consumeLiquid( Liquids.water, 1f / 6f);
         }};
@@ -214,6 +216,7 @@ public class frigidblocks {
             hasLiquids = false;
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
+            consumePower(4f);
             consumeItems(with(frigiditems.citrine, 3, Items.graphite, 5,frigiditems.manganese, 1));
         }};
 
@@ -221,22 +224,21 @@ public class frigidblocks {
             requirements(Category.crafting,
                     with(Items.graphite, 1));
             squareSprite = false;
-            itemCapacity = 120;
+            itemCapacity = 500;
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(Items.copper, 30);
+            outputItem = new ItemStack(Items.copper, 190);
             craftTime = 80f;
             size = 7;
-            heatRequirement = 120;
+            heatRequirement = 210;
             hasPower = true;
             hasLiquids = true;
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
-
-            consumeItems(with(frigiditems.citrine, 5, frigiditems.cryolite, 5,
-                    frigiditems.manganese, 4, frigiditems.cobalt, 4, Items.thorium, 3,
-                    frigiditems.lithium, 4, Items.graphite, 5));
+            consumeItems(with(frigiditems.citrine, 37, frigiditems.cryolite, 33,
+                    frigiditems.manganese, 24, frigiditems.cobalt, 18, Items.thorium, 13,
+                    frigiditems.lithium, 21, Items.graphite, 41));
             consumeLiquid( Liquids.water, 2);
-            consumePower(100f);
+            consumePower(125f);
         }};
 
         compositeManufacture = new HeatCrafter("composite-manufacture"){{
@@ -244,7 +246,7 @@ public class frigidblocks {
                     with(Items.graphite, 1));
             outputItems = ItemStack.with(frigiditems.carborundum, 6,
                     frigiditems.kyanite, 6, frigiditems.duralumin, 5);
-            itemCapacity = 30;
+            itemCapacity = 50;
             size = 5;
             heatRequirement = 10;
             hasPower = true;
@@ -253,6 +255,60 @@ public class frigidblocks {
             consumeItems(with(frigiditems.manganese, 2,frigiditems.citrine, 8,
                     frigiditems.cryolite, 7, Items.graphite, 3));
             consumePower(10f);
+        }};
+
+        solidriteFoundry = new HeatCrafter("solidrite-foundry"){{
+            requirements(Category.crafting,
+                    with(Items.graphite, 2));
+            squareSprite = false;
+            itemCapacity = 40;
+            craftEffect = Fx.smeltsmoke;
+            outputItem = new ItemStack(frigiditems.solidrite, 9);
+            craftTime = 65f;
+            size = 7;
+            heatRequirement = 15;
+            hasPower = true;
+            hasLiquids = false;
+            ambientSound = Sounds.smelter;
+            ambientSoundVolume = 0.07f;
+
+            consumeItems(with(frigiditems.cobalt, 5, frigiditems.chromium, 6, frigiditems.nickel, 7));
+            consumePower(7f);
+        }};
+
+        mythrariteMixer = new GenericCrafter("mythrarite-mixer"){{
+            requirements(Category.crafting,
+                    with(frigiditems.duralumin, 30, frigiditems.citrine, 25));
+            itemCapacity = 30;
+            craftEffect = Fx.smeltsmoke;
+            outputItem = new ItemStack(frigiditems.cythoride, 5);
+            craftTime = 60f;
+            size = 4;
+            hasPower = false;
+            hasLiquids = false;
+            ambientSound = Sounds.smelter;
+            ambientSoundVolume = 0.07f;
+            consumePower(3f);
+            consumeItems(with(frigiditems.cythoride, 3, frigiditems.manganese, 2));
+        }};
+
+        smallMetalAmalgamate = new HeatCrafter("small-metal-amalgamate"){{
+            requirements(Category.crafting,
+                    with(Items.graphite, 1));
+            squareSprite = false;
+            itemCapacity = 120;
+            craftEffect = Fx.smeltsmoke;
+            outputItem = new ItemStack(Items.copper, 64);
+            craftTime = 60f;
+            size = 5;
+            heatRequirement = 100;
+            hasPower = true;
+            hasLiquids = false;
+            ambientSound = Sounds.smelter;
+            ambientSoundVolume = 0.07f;
+            consumeItems(with(frigiditems.cobalt, 36, frigiditems.mythrarite, 9,
+                    frigiditems.duralumin, 25, frigiditems.carborundum, 16));
+            consumePower(31.25f);
         }};
 
         //payload
