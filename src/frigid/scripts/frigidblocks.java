@@ -228,7 +228,7 @@ public class frigidblocks {
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(Items.copper, 190);
             craftTime = 480f;
-            size = 7;
+            size = 9;
             heatRequirement = 210;
             hasPower = true;
             hasLiquids = true;
@@ -300,7 +300,7 @@ public class frigidblocks {
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(Items.copper, 64);
             craftTime = 60f;
-            size = 5;
+            size = 7;
             heatRequirement = 100;
             hasPower = true;
             hasLiquids = false;
@@ -313,7 +313,7 @@ public class frigidblocks {
 
         //payload
         container = new StorageBlock("container"){{
-            requirements(Category.effect, with(Items.titanium, 100));
+            requirements(Category.effect, with(Items.graphite, 100));
             squareSprite = false;
             size = 2;
             itemCapacity = 400;
@@ -321,7 +321,7 @@ public class frigidblocks {
         }};
 
         vault = new StorageBlock("vault"){{
-            requirements(Category.effect, with(Items.titanium, 100));
+            requirements(Category.effect, with(Items.graphite, 100));
             size = 3;
             itemCapacity = 3000;
             scaledHealth = 55;
