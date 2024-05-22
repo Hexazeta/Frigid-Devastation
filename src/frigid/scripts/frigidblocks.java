@@ -227,7 +227,7 @@ public class frigidblocks {
             itemCapacity = 500;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(Items.copper, 190);
-            craftTime = 480f;
+            craftTime = 120f;
             size = 9;
             heatRequirement = 210;
             hasPower = true;
@@ -300,7 +300,7 @@ public class frigidblocks {
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(Items.copper, 64);
             craftTime = 60f;
-            size = 7;
+            size = 6;
             heatRequirement = 100;
             hasPower = true;
             hasLiquids = false;
