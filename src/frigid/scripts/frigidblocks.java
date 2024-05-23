@@ -265,7 +265,7 @@ public class frigidblocks {
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.solidrite, 9);
             craftTime = 65f;
-            size = 7;
+            size = 4;
             heatRequirement = 15;
             hasPower = true;
             hasLiquids = false;
@@ -281,7 +281,7 @@ public class frigidblocks {
                     with(frigiditems.duralumin, 30, frigiditems.citrine, 25));
             itemCapacity = 30;
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(frigiditems.cythoride, 5);
+            outputItem = new ItemStack(frigiditems.mythrarite, 5);
             craftTime = 60f;
             size = 4;
             hasPower = false;
