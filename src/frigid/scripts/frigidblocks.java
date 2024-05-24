@@ -1,5 +1,6 @@
 package frigid.scripts;
 
+import arc.graphics.Color;
 import arc.struct.Seq;
 import mindustry.content.Fx;
 import mindustry.content.Items;
@@ -15,9 +16,7 @@ import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.storage.StorageBlock;
 import mindustry.world.blocks.units.Reconstructor;
 import mindustry.world.blocks.units.UnitFactory;
-import mindustry.world.draw.DrawDefault;
-import mindustry.world.draw.DrawHeatOutput;
-import mindustry.world.draw.DrawMulti;
+import mindustry.world.draw.*;
 
 import static mindustry.type.ItemStack.*;
 
@@ -115,6 +114,12 @@ public class frigidblocks {
             hasLiquids = false;
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
+
+            drawer = new DrawMulti(
+                    new DrawHeatRegion(){{color = Color.valueOf("ff6060ff");}},
+                    new DrawDefault(),
+                    new DrawFlame(Color.valueOf("ffef99"))
+            );
             consumePower(1f);
             consumeItems(with(frigiditems.cryolite, 3));
         }};
@@ -123,14 +128,13 @@ public class frigidblocks {
             requirements(Category.crafting,
                     with(frigiditems.duralumin, 30, Items.graphite, 25));
             itemCapacity = 20;
-            craftEffect = Fx.smeltsmoke;
+            updateEffect = Fx.plasticburn;
             outputItem = new ItemStack(frigiditems.kyanite, 3);
             craftTime = 40f;
             size = 3;
             hasPower = true;
             hasLiquids = false;
-            ambientSound = Sounds.smelter;
-            ambientSoundVolume = 0.07f;
+            drawer = new DrawMulti(new DrawDefault(), new DrawFade());
             consumePower(2f / 3f);
             consumeItems(with(frigiditems.citrine, 3, frigiditems.cryolite, 2));
         }};
