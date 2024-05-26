@@ -3,7 +3,7 @@ package mod;
 import mindustry.mod.*;
 import mod.scripts.*;
 
-public class modfrigid extends Mod{
+public class modustry extends Mod{
     @Override
     public void loadContent(){
         EntityRegistry.register();

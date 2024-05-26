@@ -1,9 +1,9 @@
 {
-    "displayName": "Frigid Devastation",
-    "description": "funny frozen planet",
+    "displayName": "Complicatedustry",
+    "description": "silly mod with silly stuff",
     "version": "v1.0",
     "minGameVersion": "146",
     "author": "Hexazeta",
     "java": true,
-    "main": "frigid.modfrigid"
+    "main": "complicatedustry.complicatedustry"
 }
