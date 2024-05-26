@@ -1,15 +1,13 @@
-package frigid;
+package mod;
 
 import mindustry.mod.*;
-import frigid.scripts.*;
+import mod.scripts.*;
 
 public class modfrigid extends Mod{
     @Override
     public void loadContent(){
         EntityRegistry.register();
-        frigidunits.load();
-        frigiditems.load();
-        frigidblocks.load();
+        modblocks.load();
     }
 
     private static class EntityRegistry {
