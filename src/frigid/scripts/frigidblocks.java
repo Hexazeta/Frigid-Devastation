@@ -32,7 +32,6 @@ public class frigidblocks {
         duraluminCrucible,kyaniteMultiPress,carborundumMultiCompressor,
         cythorideMixer, metalAmalgamate, compositeManufacture, solidriteFoundry,
         mythrariteMixer, smallMetalAmalgamate,
-        siliconFoundry,
 
         //payload
         container,vault,silo,
@@ -312,24 +311,6 @@ public class frigidblocks {
             consumeItems(with(frigiditems.cobalt, 36, frigiditems.mythrarite, 9,
                     frigiditems.duralumin, 25, frigiditems.carborundum, 16));
             consumePower(31.25f);
-        }};
-
-        siliconFoundry = new GenericCrafter("silicon-foundry"){{
-            requirements(Category.crafting,
-                    with(frigiditems.duralumin, 30, Items.graphite, 25));
-            liquidCapacity = 20;
-            itemCapacity = 90;
-            craftEffect = Fx.smeltsmoke;
-            updateEffect = Fx.plasticburn;
-            drawer = new DrawMulti(new DrawDefault(), new DrawFlame(Color.valueOf("ffef99")));
-            outputItem = new ItemStack(Items.silicon, 32);
-            craftTime = 225f;
-            size = 4;
-            hasPower = true;
-            hasLiquids = true;
-            consumePower(5f);
-            consumeLiquid( Liquids.water, 1f / 6f);
-            consumeItems(with(Items.pyratite, 4, Items.graphite, 4, Items.sand, 18));
         }};
 
         //payload
