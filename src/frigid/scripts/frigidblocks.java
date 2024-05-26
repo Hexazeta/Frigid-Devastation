@@ -32,6 +32,7 @@ public class frigidblocks {
         duraluminCrucible,kyaniteMultiPress,carborundumMultiCompressor,
         cythorideMixer, metalAmalgamate, compositeManufacture, solidriteFoundry,
         mythrariteMixer, smallMetalAmalgamate,
+        siliconFoundry,
 
         //payload
         container,vault,silo,
@@ -104,30 +105,28 @@ public class frigidblocks {
             requirements(Category.crafting,
                     with(frigiditems.cryolite, 150, Items.graphite, 100));
             squareSprite = false;
-            itemCapacity = 20;
+            itemCapacity = 30;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.duralumin, 2);
             craftTime = 45f;
             size = 3;
             heatRequirement = 3;
-            hasPower = true;
+            hasPower = false;
             hasLiquids = false;
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
-
             drawer = new DrawMulti(
-                    new DrawHeatRegion(){{color = Color.valueOf("ff6060ff");}},
                     new DrawDefault(),
+                    new DrawHeatRegion(){{color = Color.valueOf("ff6060ff");}},
                     new DrawFlame(Color.valueOf("ffef99"))
             );
-            consumePower(1f);
             consumeItems(with(frigiditems.cryolite, 3));
         }};
 
         kyanitePress = new GenericCrafter("kyanite-press"){{
             requirements(Category.crafting,
                     with(frigiditems.duralumin, 30, Items.graphite, 25));
-            itemCapacity = 20;
+            itemCapacity = 30;
             updateEffect = Fx.plasticburn;
             outputItem = new ItemStack(frigiditems.kyanite, 3);
             craftTime = 40f;
@@ -142,7 +141,7 @@ public class frigidblocks {
         carborundumCompressor = new HeatCrafter("carborundum-compressor"){{
             requirements(Category.crafting,
                     with(frigiditems.duralumin, 30, frigiditems.citrine, 25));
-            itemCapacity = 20;
+            itemCapacity = 30;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.carborundum, 3);
             craftTime = 60f;
@@ -158,7 +157,7 @@ public class frigidblocks {
         cythorideMixer = new GenericCrafter("cythoride-mixer"){{
             requirements(Category.crafting,
                     with(frigiditems.duralumin, 30, frigiditems.citrine, 25));
-            itemCapacity = 20;
+            itemCapacity = 30;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.cythoride, 5);
             craftTime = 60f;
@@ -176,7 +175,7 @@ public class frigidblocks {
             requirements(Category.crafting,
                     with(frigiditems.cryolite, 150, Items.graphite, 100));
             squareSprite = false;
-            itemCapacity = 30;
+            itemCapacity = 40;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.duralumin, 5);
             craftTime = 35f;
@@ -193,7 +192,7 @@ public class frigidblocks {
         kyaniteMultiPress = new HeatCrafter("kyanite-multi-press"){{
             requirements(Category.crafting,
                     with(frigiditems.duralumin, 30, Items.graphite, 25));
-            itemCapacity = 30;
+            itemCapacity = 40;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.kyanite, 6);
             craftTime = 55f;
@@ -210,7 +209,7 @@ public class frigidblocks {
         carborundumMultiCompressor = new HeatCrafter("carborundum-multi-compressor"){{
             requirements(Category.crafting,
                     with(frigiditems.duralumin, 30, frigiditems.citrine, 25));
-            itemCapacity = 30;
+            itemCapacity = 40;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.carborundum, 8);
             craftTime = 55f;
@@ -228,7 +227,7 @@ public class frigidblocks {
             requirements(Category.crafting,
                     with(Items.graphite, 1));
             squareSprite = false;
-            itemCapacity = 500;
+            itemCapacity = 610;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(Items.copper, 190);
             craftTime = 120f;
@@ -265,7 +264,7 @@ public class frigidblocks {
             requirements(Category.crafting,
                     with(Items.graphite, 2));
             squareSprite = false;
-            itemCapacity = 40;
+            itemCapacity = 50;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.solidrite, 9);
             craftTime = 65f;
@@ -283,7 +282,7 @@ public class frigidblocks {
         mythrariteMixer = new GenericCrafter("mythrarite-mixer"){{
             requirements(Category.crafting,
                     with(frigiditems.duralumin, 30, frigiditems.citrine, 25));
-            itemCapacity = 30;
+            itemCapacity = 40;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.mythrarite, 5);
             craftTime = 60f;
@@ -313,6 +312,24 @@ public class frigidblocks {
             consumeItems(with(frigiditems.cobalt, 36, frigiditems.mythrarite, 9,
                     frigiditems.duralumin, 25, frigiditems.carborundum, 16));
             consumePower(31.25f);
+        }};
+
+        siliconFoundry = new GenericCrafter("silicon-foundry"){{
+            requirements(Category.crafting,
+                    with(frigiditems.duralumin, 30, Items.graphite, 25));
+            liquidCapacity = 20;
+            itemCapacity = 90;
+            craftEffect = Fx.smeltsmoke;
+            updateEffect = Fx.plasticburn;
+            drawer = new DrawMulti(new DrawDefault(), new DrawFlame(Color.valueOf("ffef99")));
+            outputItem = new ItemStack(Items.silicon, 32);
+            craftTime = 225f;
+            size = 4;
+            hasPower = true;
+            hasLiquids = true;
+            consumePower(5f);
+            consumeLiquid( Liquids.water, 1f / 6f);
+            consumeItems(with(Items.pyratite, 4, Items.graphite, 4, Items.sand, 18));
         }};
 
         //payload
