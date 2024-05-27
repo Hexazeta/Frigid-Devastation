@@ -1,9 +1,9 @@
 {
-    "displayName": "Complicatedustry",
-    "description": "silly mod with silly stuff",
+    "displayName": "Frigid-Devastation",
+    "description": "part of a icey planets collab",
     "version": "v1.0",
     "minGameVersion": "146",
     "author": "Hexazeta",
     "java": true,
-    "main": "complicatedustry.complicatedustry"
+    "main": "frigid.modfrigid"
 }

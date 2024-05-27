@@ -19,5 +19,5 @@ jobs:
       - name: Upload built mod artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Complicatedustry (zipped)
-          path: build/libs/Complicatedustry.jar
+          name: FrigidDevastation (zipped)
+          path: build/libs/FrigidDevastation.jar
