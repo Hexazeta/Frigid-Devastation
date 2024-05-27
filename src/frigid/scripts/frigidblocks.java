@@ -25,7 +25,7 @@ public class frigidblocks {
     public static Block
 
         //item transfer
-        duct, platedConveyor, multiPLatedConveyor,
+        duct,reinforcedDuct, platedConveyor, multiPLatedConveyor,
 
         //crafters
         heater, burner, duraluminSmelter, kyanitePress, carborundumCompressor,
@@ -47,6 +47,13 @@ public class frigidblocks {
             requirements(Category.distribution, with(Items.graphite, 1));
             health = 90;
             speed = 3f;
+        }};
+
+        reinforcedDuct = new Duct("reinforced-duct"){{
+            requirements(Category.distribution, with(Items.graphite, 1));
+            health = 125;
+            speed = 3f;
+            armored = true;
         }};
 
         platedConveyor = new StackConveyor("plated-conveyor"){{
@@ -93,6 +100,9 @@ public class frigidblocks {
             size = 3;
             liquidCapacity = 50f;
             heatOutput = 5;
+            drawer = new DrawMulti(new DrawRegion("-bottom"),
+                    new DrawLiquidTile(Liquids.water),
+                    new DrawDefault(), new DrawHeatOutput());
             consumeLiquid(Liquids.water, 10f / 60f);
             consumeItem(Items.graphite);
             itemDuration = 60f * 3f;
@@ -150,6 +160,7 @@ public class frigidblocks {
             hasLiquids = false;
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
+            drawer = new DrawMulti(new DrawDefault(), new DrawHeatInput());
             consumeItems(with(frigiditems.citrine, 3, Items.graphite, 2));
         }};
 
