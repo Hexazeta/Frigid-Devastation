@@ -116,7 +116,7 @@ public class frigidblocks {
             ambientSoundVolume = 0.07f;
             drawer = new DrawMulti(
                     new DrawDefault(),
-                    new DrawHeatRegion(){{color = Color.valueOf("ff6060ff");}},
+                    new DrawHeatInput(),
                     new DrawFlame(Color.valueOf("ffef99"))
             );
             consumeItems(with(frigiditems.cryolite, 3));
