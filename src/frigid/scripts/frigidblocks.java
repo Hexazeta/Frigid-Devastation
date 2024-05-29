@@ -2,12 +2,14 @@ package frigid.scripts;
 
 import arc.graphics.Color;
 import arc.struct.Seq;
-import mindustry.content.Fx;
-import mindustry.content.Items;
-import mindustry.content.Liquids;
+import mindustry.content.*;
+import mindustry.entities.UnitSorts;
+import mindustry.entities.bullet.PointLaserBulletType;
+import mindustry.entities.pattern.ShootBarrel;
 import mindustry.gen.*;
 import mindustry.type.*;
 import mindustry.world.*;
+import mindustry.world.blocks.defense.turrets.ContinuousTurret;
 import mindustry.world.blocks.distribution.Duct;
 import mindustry.world.blocks.distribution.StackConveyor;
 import mindustry.world.blocks.heat.HeatProducer;
@@ -15,6 +17,8 @@ import mindustry.world.blocks.power.HeaterGenerator;
 import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.storage.StorageBlock;
 import mindustry.world.blocks.units.Reconstructor;
+import mindustry.world.blocks.units.UnitAssembler;
+import mindustry.world.blocks.units.UnitAssemblerModule;
 import mindustry.world.blocks.units.UnitFactory;
 import mindustry.world.draw.*;
 
@@ -37,7 +41,11 @@ public class frigidblocks {
         container,vault,silo,
 
         //unit factory or some shit idk
-        ballisticFactory,ballisticReconstructor;
+        ballisticFactory, ballisticReconstructor,
+        fusionAssembler, basicAssemblerModule, advancedAssemblerModule,
+
+        //tureet
+        breaker;
 
 
     public static void load(){
@@ -373,6 +381,81 @@ public class frigidblocks {
             upgrades.addAll(
                     new UnitType[]{frigidunits.ceres, frigidunits.haumea}
             );
+        }};
+
+        fusionAssembler = new UnitAssembler("fusion-assembler"){{
+            requirements(Category.units, with(Items.copper, 1));
+            regionSuffix = "-dark";
+            size = 9;
+            //TODO different reqs
+            plans.add(
+                    new AssemblerUnitPlan(UnitTypes.spiroct, 60f * 30f, PayloadStack.list(UnitTypes.crawler, 2, UnitTypes.atrax, 1, Blocks.titaniumWallLarge, 5)),
+                    new AssemblerUnitPlan(UnitTypes.arkyid, 60f * 40f, PayloadStack.list(UnitTypes.atrax, 4, UnitTypes.spiroct, 2, Blocks.thoriumWallLarge, 10, Blocks.plastaniumWallLarge, 8)),
+                    new AssemblerUnitPlan(UnitTypes.toxopid, 60f * 50f, PayloadStack.list(UnitTypes.crawler, 10, UnitTypes.atrax, 8, UnitTypes.spiroct, 5, Blocks.phaseWallLarge, 20, Blocks.surgeWallLarge, 15, Blocks.plastaniumWallLarge, 10))
+
+            );
+            areaSize = 27;
+
+            consumePower(3.5f);
+            consumeLiquid(Liquids.cryofluid, 12f / 60f);
+        }};
+
+        basicAssemblerModule = new UnitAssemblerModule("basic-assembler-module"){{
+            requirements(Category.units, with(Items.copper, 1));
+            consumePower(4f);
+            regionSuffix = "-dark";
+            researchCostMultiplier = 0.75f;
+
+            size = 5;
+        }};
+
+        advancedAssemblerModule = new UnitAssemblerModule("advanced-assembler-module"){{
+            requirements(Category.units, with(Items.copper, 1));
+            consumePower(4f);
+            regionSuffix = "-dark";
+            researchCostMultiplier = 0.75f;
+            tier = 2;
+            size = 7;
+        }};
+
+        breaker = new ContinuousTurret("breaker"){{
+            requirements(Category.turret, with(Items.silicon, 2));
+
+            shootType = new PointLaserBulletType(){{
+                damage = 125f;
+                buildingDamageMultiplier = 0.3f;
+                hitColor = Color.valueOf("fda981");
+            }};
+
+            shoot = new ShootBarrel(){{
+                barrels = new float[]{
+                        -16, 2f, 0,
+                        0, 0, 0,
+                        16, 2f, 0
+                };
+                shots = 4;
+                shotDelay = 5f;
+            }};
+
+            shootSound = Sounds.none;
+            loopSoundVolume = 1f;
+            loopSound = Sounds.laserbeam;
+
+            shootWarmupSpeed = 0.1f;
+            shootCone = 360f;
+
+            aimChangeSpeed = 0.9f;
+            rotateSpeed = 0.9f;
+
+            shootY = 0.5f;
+            size = 5;
+            range = 250f;
+            scaledHealth = 1000;
+
+            //TODO is this a good idea to begin with?
+            unitSort = UnitSorts.strongest;
+
+            consumeLiquid(Liquids.slag, 25f / 60f);
         }};
 
     }
