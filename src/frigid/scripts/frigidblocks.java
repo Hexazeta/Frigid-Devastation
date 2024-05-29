@@ -10,8 +10,7 @@ import mindustry.gen.*;
 import mindustry.type.*;
 import mindustry.world.*;
 import mindustry.world.blocks.defense.turrets.ContinuousTurret;
-import mindustry.world.blocks.distribution.Duct;
-import mindustry.world.blocks.distribution.StackConveyor;
+import mindustry.world.blocks.distribution.*;
 import mindustry.world.blocks.heat.HeatProducer;
 import mindustry.world.blocks.power.HeaterGenerator;
 import mindustry.world.blocks.production.*;
@@ -29,10 +28,11 @@ public class frigidblocks {
     public static Block
 
         //item transfer
-        duct,reinforcedDuct, platedConveyor, multiPLatedConveyor,
+        duct, reinforcedDuct, ductRouter, overflowDuct, underflowDuct, ductBridge,
+        platedConveyor, platedRouter, multiPLatedConveyor,
 
         //crafters
-        heater, burner, duraluminSmelter, kyanitePress, carborundumCompressor,
+        heater, burner, duraluminSmelter, kyanitePress, carborundumCompressor,manganeseConcentrator,
         duraluminCrucible,kyaniteMultiPress,carborundumMultiCompressor,
         cythorideMixer, metalAmalgamate, compositeManufacture, solidriteFoundry,
         mythrariteMixer, smallMetalAmalgamate,
@@ -57,8 +57,43 @@ public class frigidblocks {
             speed = 3f;
         }};
 
+        ductRouter = new DuctRouter("duct-router"){{
+            requirements(Category.distribution, with(frigiditems.citrine, 10));
+            health = 90;
+            speed = 3f;
+            regionRotated1 = 1;
+            solid = false;
+            researchCost = with(Items.graphite, 2);
+        }};
+
+        overflowDuct = new OverflowDuct("overflow-duct"){{
+            requirements(Category.distribution, with(Items.graphite, 8, frigiditems.citrine, 8));
+            health = 90;
+            speed = 3f;
+            solid = false;
+            researchCostMultiplier = 1.5f;
+        }};
+
+        underflowDuct = new OverflowDuct("underflow-duct"){{
+            requirements(Category.distribution, with(Items.graphite, 8, frigiditems.citrine, 8));
+            health = 90;
+            speed = 3f;
+            solid = false;
+            researchCostMultiplier = 1.5f;
+            invert = true;
+        }};
+
+        ductBridge = new DuctBridge("duct-bridge"){{
+            requirements(Category.distribution, with(frigiditems.citrine, 20));
+            range = 8;
+            health = 90;
+            speed = 4f;
+            buildCostMultiplier = 2f;
+            researchCostMultiplier = 0.3f;
+        }};
+
         reinforcedDuct = new Duct("reinforced-duct"){{
-            requirements(Category.distribution, with(Items.graphite, 1));
+            requirements(Category.distribution, with(Items.graphite, 1, frigiditems.kyanite, 1));
             health = 125;
             speed = 3f;
             armored = true;
@@ -70,6 +105,21 @@ public class frigidblocks {
             health = 160;
             speed = 5f / 60f;
             itemCapacity = 10;
+        }};
+
+        platedRouter = new StackRouter("surge-router"){{
+            requirements(Category.distribution, with(Items.surgeAlloy, 5, Items.tungsten, 1));
+            health = 160;
+
+            speed = 5f;
+
+            hasPower = true;
+            consumesPower = true;
+            conductivePower = true;
+            baseEfficiency = 1f;
+            underBullets = true;
+            solid = false;
+            consumePower(3f / 60f);
         }};
 
         multiPLatedConveyor = new StackConveyor("multi-plated-conveyor"){{
@@ -125,7 +175,7 @@ public class frigidblocks {
             itemCapacity = 30;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.duralumin, 2);
-            craftTime = 45f;
+            craftTime = 60f;
             size = 3;
             heatRequirement = 3;
             hasPower = false;
@@ -161,7 +211,7 @@ public class frigidblocks {
             itemCapacity = 30;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.carborundum, 3);
-            craftTime = 60f;
+            craftTime = 80f;
             size = 3;
             heatRequirement = 5;
             hasPower = false;
@@ -172,13 +222,28 @@ public class frigidblocks {
             consumeItems(with(frigiditems.citrine, 3, Items.graphite, 2));
         }};
 
+        manganeseConcentrator = new GenericCrafter("manganese-concentrator") {{
+            requirements(Category.crafting, with( Items.graphite, 1, frigiditems.duralumin, 1,
+                    frigiditems.carborundum, 1, frigiditems.kyanite, 1));
+            squareSprite = true;
+            size = 3;
+            itemCapacity = 30;
+            liquidCapacity = 90f;
+            craftTime = 135f;
+            hasPower = true;
+            hasLiquids = true;
+            consumeLiquid(Liquids.water, 15f / 60f);
+            consumePower(4.5f);
+            outputItem = new ItemStack(frigiditems.manganese, 3);
+        }};
+
         cythorideMixer = new GenericCrafter("cythoride-mixer"){{
             requirements(Category.crafting,
                     with(frigiditems.duralumin, 30, frigiditems.citrine, 25));
             itemCapacity = 30;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.cythoride, 5);
-            craftTime = 60f;
+            craftTime = 175f;
             size = 4;
             hasPower = false;
             hasLiquids = true;
