@@ -108,7 +108,7 @@ public class frigidblocks {
         }};
 
         platedRouter = new StackRouter("surge-router"){{
-            requirements(Category.distribution, with(Items.surgeAlloy, 5, Items.tungsten, 1));
+            requirements(Category.distribution, with(frigiditems.manganese, 5, frigiditems.lithium, 1));
             health = 160;
 
             speed = 5f;
