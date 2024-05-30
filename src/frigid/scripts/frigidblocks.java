@@ -107,7 +107,7 @@ public class frigidblocks {
             itemCapacity = 10;
         }};
 
-        platedRouter = new StackRouter("surge-router"){{
+        platedRouter = new StackRouter("plated-router"){{
             requirements(Category.distribution, with(frigiditems.manganese, 5, frigiditems.lithium, 1));
             health = 160;
 
