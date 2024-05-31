@@ -113,13 +113,12 @@ public class frigidblocks {
 
             speed = 5f;
 
-            hasPower = true;
-            consumesPower = true;
-            conductivePower = true;
+            hasPower = false;
+            consumesPower = false;
+            conductivePower = false;
             baseEfficiency = 1f;
             underBullets = true;
             solid = false;
-            consumePower(3f / 60f);
         }};
 
         multiPLatedConveyor = new StackConveyor("multi-plated-conveyor"){{
@@ -171,7 +170,6 @@ public class frigidblocks {
         duraluminSmelter = new HeatCrafter("duralumin-smelter"){{
             requirements(Category.crafting,
                     with(frigiditems.cryolite, 150, Items.graphite, 100));
-            squareSprite = false;
             itemCapacity = 30;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.duralumin, 2);

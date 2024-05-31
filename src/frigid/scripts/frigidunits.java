@@ -5,17 +5,23 @@ import mindustry.*;
 import arc.graphics.Color;
 import mindustry.ai.types.GroundAI;
 import mindustry.content.Fx;
+import mindustry.content.StatusEffects;
 import mindustry.entities.bullet.*;
 import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.*;
+import mindustry.graphics.Pal;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
+import mindustry.type.unit.ErekirUnitType;
+import mindustry.type.weapons.RepairBeamWeapon;
+
+import static mindustry.Vars.tilesize;
 
 public class frigidunits {
     public static UnitType
 
             //tester
-            tester,
+            tester,router,
 
             //core
             lunar,
@@ -27,6 +33,80 @@ public class frigidunits {
             spiker;
 
     public static void load() {
+
+        float coreFleeRange = 500f;
+
+        router = new ErekirUnitType("router"){{
+            constructor = UnitEntity::create;
+            coreUnitDock = true;
+            controller = u -> new BuilderAI(true, coreFleeRange);
+            isEnemy = false;
+            envDisabled = 0;
+
+            range = 65f;
+            faceTarget = true;
+            targetPriority = -2;
+            lowAltitude = false;
+            mineWalls = true;
+            mineFloor = false;
+            mineHardnessScaling = false;
+            flying = true;
+            mineSpeed = 9f;
+            mineTier = 3;
+            buildSpeed = 1.5f;
+            drag = 0.08f;
+            speed = 7.5f;
+            rotateSpeed = 8f;
+            accel = 0.08f;
+            itemCapacity = 110;
+            health = 700f;
+            armor = 3f;
+            hitSize = 12f;
+            buildBeamOffset = 8f;
+            payloadCapacity = 2f * 2f * tilesize * tilesize;
+            pickupUnits = false;
+            vulnerableWithPayloads = true;
+
+            fogRadius = 0f;
+            targetable = false;
+            hittable = false;
+
+            engineOffset = 7.5f;
+            engineSize = 3.4f;
+
+            setEnginesMirror(
+                    new UnitEngine(35 / 4f, -13 / 4f, 2.7f, 315f),
+                    new UnitEngine(28 / 4f, -35 / 4f, 2.7f, 315f)
+            );
+
+            weapons.add(new RepairBeamWeapon(){{
+                widthSinMag = 0.11f;
+                reload = 20f;
+                x = 19f/4f;
+                y = 19f/4f;
+                rotate = false;
+                shootY = 0f;
+                beamWidth = 0.7f;
+                aimDst = 0f;
+                shootCone = 40f;
+                mirror = true;
+
+                repairSpeed = 3.6f / 2f;
+                fractionRepairSpeed = 0.03f;
+
+                targetUnits = false;
+                targetBuildings = true;
+                autoTarget = false;
+                controllable = true;
+                laserColor = Pal.accent;
+                healColor = Pal.accent;
+
+                bullet = new BulletType(){{
+                    maxRange = 65f;
+                }};
+            }});
+        }};
+
         tester = new UnitType("dagger"){{
             aiController = GroundAI::new;
             constructor = MechUnit::create;
@@ -107,59 +187,41 @@ public class frigidunits {
             fogRadius = 0f;
             itemCapacity = 30;
             health = 240f;
-            engineOffset = 6f;
             hitSize = 8f;
             alwaysUnlocked = true;
 
-            weapons.add(new Weapon("small-basic-weapon"){{
-                top = false;
-                reload = 15f;
-                x = 2.75f;
-                y = 1f;
-                shoot = new ShootSpread(){{
-                    shots = 2;
-                    shotDelay = 3f;
-                    spread = 2f;
-                }};
+            engineOffset = 7.5f;
+            engineSize = 3.4f;
+            setEnginesMirror(new UnitEngine(27 / 4f, -3 / 4f, 2.7f, 315f));
 
-                inaccuracy = 3f;
-                ejectEffect = Fx.casing1;
+            weapons.add(new RepairBeamWeapon(){{
+                widthSinMag = 0.11f;
+                reload = 20f;
+                x = 0f;
+                y = 27f/4f;
+                rotate = false;
+                shootY = 0f;
+                beamWidth = 0.7f;
+                aimDst = 0f;
+                shootCone = 40f;
+                mirror = false;
 
-                bullet = new BasicBulletType(2.5f, 11) {{
-                    width = 6.5f;
-                    height = 11f;
-                    lifetime = 70f;
-                    shootEffect = Fx.shootSmall;
-                    smokeEffect = Fx.shootSmallSmoke;
-                    buildingDamageMultiplier = 0.01f;
-                    homingPower = 0.04f;
-                }};
-            }});
+                repairSpeed = 3.6f / 2f;
+                fractionRepairSpeed = 0.03f;
 
-            weapons.add(new Weapon("small-mount-weapon"){{
-                top = false;
-                reload = 15f;
-                x = 1f;
-                y = 2f;
-                shoot = new ShootSpread(){{
-                    shots = 2;
-                    shotDelay = 3f;
-                    spread = 2f;
-                }};
+                targetUnits = false;
+                targetBuildings = true;
+                autoTarget = false;
+                controllable = true;
+                laserColor = Pal.accent;
+                healColor = Pal.accent;
 
-                inaccuracy = 3f;
-                ejectEffect = Fx.casing1;
-
-                bullet = new BasicBulletType(3.5f, 11){{
-                    width = 6.5f;
-                    height = 11f;
-                    lifetime = 70f;
-                    shootEffect = Fx.shootSmall;
-                    smokeEffect = Fx.shootSmallSmoke;
-                    buildingDamageMultiplier = 0.01f;
-                    homingPower = 0.04f;
+                bullet = new BulletType(){{
+                    maxRange = 65f;
                 }};
             }});
+
+            outlineColor = Color.valueOf("282b54");
         }};
 
         ceres = new UnitType("ceres"){{
