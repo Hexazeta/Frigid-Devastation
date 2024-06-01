@@ -5,9 +5,8 @@ import mindustry.type.Item;
 
 public class frigiditems {
 
-    public static Item citrine, duralumin, kyanite, carborundum, manganese,
-            cobalt, lithium, cryolite, cythoride, chromium, nickel, mythril,
-            orichalcum, frostamalgum, mythrarite, solidrite, quantum, singularite;
+    public static Item citrine, duralumin, kyanite, carborundum, manganese, cobalt, lithium,
+            cryolite, cythoride, chromium, nickel, frostAmalgum, mythrarite, solidrite, quantum, singularite;
 
     public static void load() {
 

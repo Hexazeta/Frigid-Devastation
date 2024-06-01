@@ -9,10 +9,13 @@ import mindustry.entities.pattern.ShootBarrel;
 import mindustry.gen.*;
 import mindustry.type.*;
 import mindustry.world.*;
+import mindustry.world.blocks.defense.Wall;
 import mindustry.world.blocks.defense.turrets.ContinuousTurret;
 import mindustry.world.blocks.distribution.*;
 import mindustry.world.blocks.heat.HeatProducer;
+import mindustry.world.blocks.power.BeamNode;
 import mindustry.world.blocks.power.HeaterGenerator;
+import mindustry.world.blocks.power.PowerNode;
 import mindustry.world.blocks.production.*;
 import mindustry.world.blocks.storage.StorageBlock;
 import mindustry.world.blocks.units.Reconstructor;
@@ -20,12 +23,21 @@ import mindustry.world.blocks.units.UnitAssembler;
 import mindustry.world.blocks.units.UnitAssemblerModule;
 import mindustry.world.blocks.units.UnitFactory;
 import mindustry.world.draw.*;
+import mindustry.world.meta.Env;
+import org.w3c.dom.ranges.Range;
+
+import java.awt.font.NumericShaper;
 
 import static mindustry.type.ItemStack.*;
 
 public class frigidblocks {
 
     public static Block
+
+        //defnecese
+        graphiteWall,graphiteWallLarge,graphiteWallHuge,
+        //power or some shit
+        powerNode,beamNode,
 
         //item transfer
         duct, reinforcedDuct, ductRouter, overflowDuct, underflowDuct, ductBridge,
@@ -35,7 +47,7 @@ public class frigidblocks {
         heater, burner, duraluminSmelter, kyanitePress, carborundumCompressor,manganeseConcentrator,
         duraluminCrucible,kyaniteMultiPress,carborundumMultiCompressor,
         cythorideMixer, metalAmalgamate, compositeManufacture, solidriteFoundry,
-        mythrariteMixer, smallMetalAmalgamate,
+        mythrariteMixer, smallMetalAmalgamate, quantumForger,
 
         //payload
         container,vault,silo,
@@ -49,6 +61,50 @@ public class frigidblocks {
 
 
     public static void load(){
+
+        //defencse
+        int wallHealthMultiplier = 4;
+
+        graphiteWall = new Wall("graphite-wall"){{
+            requirements(Category.defense, with(Items.graphite, 6));
+            health = 210 * wallHealthMultiplier;
+            armor = 1f;
+            buildCostMultiplier = 8f;
+        }};
+
+        graphiteWallLarge = new Wall("graphite-wall-large"){{
+            requirements(Category.defense, ItemStack.mult(graphiteWall.requirements, 4));
+            health = 210 * wallHealthMultiplier * 4;
+            armor = 2f;
+            buildCostMultiplier = 5f;
+            size = 2;
+        }};
+
+        graphiteWallHuge = new Wall("graphite-wall-huge"){{
+            requirements(Category.defense, ItemStack.mult(graphiteWall.requirements, 9));
+            health = 210 * wallHealthMultiplier * 9;
+            armor = 2f;
+            buildCostMultiplier = 5f;
+            size = 3;
+        }};
+
+        //power stuff
+        powerNode = new PowerNode("power-node"){{
+            requirements(Category.power, with(Items.graphite, 2, frigiditems.duralumin, 1));
+            maxNodes = 20;
+            laserRange = 5;
+        }};
+
+        beamNode = new BeamNode("beam-node"){{
+            requirements(Category.power, with(Items.graphite, 7, frigiditems.duralumin, 3));
+            consumesPower = outputsPower = true;
+            health = 90;
+            range = 20;
+            fogRadius = 1;
+            researchCost = with(Items.graphite, 7, frigiditems.duralumin, 3);
+
+            consumePowerBuffered(1500f);
+        }};
 
         //item transfer
         duct = new Duct("duct"){{
@@ -164,7 +220,7 @@ public class frigidblocks {
             consumeItem(Items.graphite);
             itemDuration = 60f * 3f;
             itemCapacity = 10;
-            powerProduction = 2.5f;
+            powerProduction = 6.5f;
             }};
 
         duraluminSmelter = new HeatCrafter("duralumin-smelter"){{
@@ -172,8 +228,8 @@ public class frigidblocks {
                     with(frigiditems.cryolite, 150, Items.graphite, 100));
             itemCapacity = 30;
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(frigiditems.duralumin, 2);
-            craftTime = 60f;
+            outputItem = new ItemStack(frigiditems.duralumin, 1);
+            craftTime = 40f;
             size = 3;
             heatRequirement = 3;
             hasPower = false;
@@ -194,7 +250,7 @@ public class frigidblocks {
             itemCapacity = 30;
             updateEffect = Fx.plasticburn;
             outputItem = new ItemStack(frigiditems.kyanite, 3);
-            craftTime = 40f;
+            craftTime = 60f;
             size = 3;
             hasPower = true;
             hasLiquids = false;
@@ -208,6 +264,7 @@ public class frigidblocks {
                     with(frigiditems.duralumin, 30, frigiditems.citrine, 25));
             itemCapacity = 30;
             craftEffect = Fx.smeltsmoke;
+            updateEffect = Fx.coalSmeltsmoke;
             outputItem = new ItemStack(frigiditems.carborundum, 3);
             craftTime = 80f;
             size = 3;
@@ -230,8 +287,25 @@ public class frigidblocks {
             craftTime = 135f;
             hasPower = true;
             hasLiquids = true;
+            craftEffect = Fx.steam;
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(Liquids.water),
+                    new DrawCells(), new DrawCells(){{
+                        color = Color.valueOf("570034");
+                        particleColorFrom = Color.valueOf("800f53");
+                        particleColorTo = Color.valueOf("2e00026");
+                        particles = 200;
+                        range = 9f;
+            }},
+                    new DrawCircles(){{
+                        timeScl = 400;
+                        color = Color.valueOf("570034").a(0.24f);
+                        strokeMax = 1.2f;
+                        radius = 9f;
+                        amount = 5;
+                    }},
+                    new DrawDefault());
             consumeLiquid(Liquids.water, 15f / 60f);
-            consumePower(4.5f);
+            consumePower(2.5f);
             outputItem = new ItemStack(frigiditems.manganese, 3);
         }};
 
@@ -241,7 +315,7 @@ public class frigidblocks {
             itemCapacity = 30;
             craftEffect = Fx.smeltsmoke;
             outputItem = new ItemStack(frigiditems.cythoride, 5);
-            craftTime = 175f;
+            craftTime = 180f;
             size = 4;
             hasPower = false;
             hasLiquids = true;
@@ -258,8 +332,8 @@ public class frigidblocks {
             squareSprite = false;
             itemCapacity = 40;
             craftEffect = Fx.smeltsmoke;
-            outputItem = new ItemStack(frigiditems.duralumin, 5);
-            craftTime = 35f;
+            outputItem = new ItemStack(frigiditems.duralumin, 3);
+            craftTime = 30f;
             size = 4;
             heatRequirement = 8;
             hasPower = true;
@@ -267,7 +341,7 @@ public class frigidblocks {
             ambientSound = Sounds.smelter;
             ambientSoundVolume = 0.07f;
             consumePower(2.5f);
-            consumeItems(with(frigiditems.cryolite, 7));
+            consumeItems(with(frigiditems.cryolite, 8));
         }};
 
         kyaniteMultiPress = new HeatCrafter("kyanite-multi-press"){{
@@ -393,6 +467,23 @@ public class frigidblocks {
             consumeItems(with(frigiditems.cobalt, 36, frigiditems.mythrarite, 9,
                     frigiditems.duralumin, 25, frigiditems.carborundum, 16));
             consumePower(31.25f);
+        }};
+
+        quantumForger = new GenericCrafter("quantum-forger"){{
+            requirements(Category.crafting,
+                    with(Items.graphite, 1));
+            itemCapacity = 30;
+            craftEffect = Fx.smeltsmoke;
+            outputItem = new ItemStack(frigiditems.quantum, 3);
+            craftTime = 60f;
+            size = 3;
+            hasPower = true;
+            hasLiquids = true;
+            ambientSound = Sounds.smelter;
+            ambientSoundVolume = 0.07f;
+            consumeLiquid(frigidliquids.mythril, 15f / 60f);
+            consumeLiquid(frigidliquids.mythril, 20f / 60f);
+            consumePower(2.6f);
         }};
 
         //payload

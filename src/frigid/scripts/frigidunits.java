@@ -108,7 +108,7 @@ public class frigidunits {
             }});
         }};
 
-        tester = new UnitType("dagger"){{
+        tester = new ErekirUnitType("dagger"){{
             aiController = GroundAI::new;
             constructor = MechUnit::create;
 
