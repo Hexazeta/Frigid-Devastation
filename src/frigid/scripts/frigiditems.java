@@ -58,6 +58,10 @@ public class frigiditems {
             color = Color.valueOf("899c8c");
         }};
 
+        quantum = new Item("quantum"){{
+            color = Color.valueOf("22ab39");
+        }};
+
         solidrite = new Item("solidrite"){{
             color = Color.valueOf("d9d9d9");
         }};
